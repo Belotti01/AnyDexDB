@@ -1,0 +1,3 @@
+[submodule "NLibrary"]
+	path = NLibrary
+	url = https://github.com/Belotti01/NLibrary
