@@ -153,7 +153,7 @@ namespace AnyDexDB {
 				entity.Property(e => e.UserId).HasColumnName("user_id");
 
 				entity.HasOne(d => d.Category)
-					.WithMany(p => p.Categoryratings)
+					.WithMany(p => p.CategoryRatings)
 					.HasForeignKey(d => d.CategoryId)
 					.OnDelete(DeleteBehavior.ClientSetNull)
 					.HasConstraintName("fk_CategoryRating_Category1");
@@ -219,7 +219,7 @@ namespace AnyDexDB {
 					.HasColumnName("title");
 
 				entity.HasOne(d => d.LearningPath)
-					.WithMany(p => p.Learningsteps)
+					.WithMany(p => p.LearningSteps)
 					.HasForeignKey(d => d.LearningPathId)
 					.OnDelete(DeleteBehavior.ClientSetNull)
 					.HasConstraintName("fk_LearningStep_LearningPath1");
@@ -430,7 +430,7 @@ namespace AnyDexDB {
 				entity.Property(e => e.QuizQuestionId).HasColumnName("quiz_question_id");
 
 				entity.HasOne(d => d.QuizQuestion)
-					.WithMany(p => p.Quizanswers)
+					.WithMany(p => p.QuizAnswers)
 					.HasForeignKey(d => d.QuizQuestionId)
 					.OnDelete(DeleteBehavior.ClientSetNull)
 					.HasConstraintName("fk_QuizAnswer_QuizQuestion1");
@@ -460,7 +460,7 @@ namespace AnyDexDB {
 				entity.Property(e => e.QuizId).HasColumnName("quiz_id");
 
 				entity.HasOne(d => d.Quiz)
-					.WithMany(p => p.Quizquestions)
+					.WithMany(p => p.QuizQuestions)
 					.HasForeignKey(d => d.QuizId)
 					.OnDelete(DeleteBehavior.ClientSetNull)
 					.HasConstraintName("fk_QuizQuestion_Quiz1");
@@ -482,7 +482,7 @@ namespace AnyDexDB {
 				entity.Property(e => e.UserId).HasColumnName("user_id");
 
 				entity.HasOne(d => d.Quiz)
-					.WithMany(p => p.Quizratings)
+					.WithMany(p => p.QuizRatings)
 					.HasForeignKey(d => d.QuizId)
 					.OnDelete(DeleteBehavior.ClientSetNull)
 					.HasConstraintName("fk_Rating_copy1_Quiz1");
@@ -515,7 +515,7 @@ namespace AnyDexDB {
 				entity.Property(e => e.UserId).HasColumnName("user_id");
 
 				entity.HasOne(d => d.Quiz)
-					.WithMany(p => p.Quizresults)
+					.WithMany(p => p.QuizResults)
 					.HasForeignKey(d => d.QuizId)
 					.OnDelete(DeleteBehavior.ClientSetNull)
 					.HasConstraintName("fk_QuizResult_Quiz1");
@@ -592,7 +592,7 @@ namespace AnyDexDB {
 				entity.Property(e => e.ResourceId).HasColumnName("resource_id");
 
 				entity.HasOne(d => d.Quiz)
-					.WithMany(p => p.Resourcequizzes)
+					.WithMany(p => p.ResourceQuizzes)
 					.HasForeignKey(d => d.QuizId)
 					.OnDelete(DeleteBehavior.ClientSetNull)
 					.HasConstraintName("fk_ResourceQuiz_Quiz1");
@@ -620,13 +620,13 @@ namespace AnyDexDB {
 				entity.Property(e => e.Type).HasColumnName("type");
 
 				entity.HasOne(d => d.RelatedResource)
-					.WithMany(p => p.ResourcerelationRelatedResources)
+					.WithMany(p => p.RelatedResources)
 					.HasForeignKey(d => d.RelatedResourceId)
 					.OnDelete(DeleteBehavior.ClientSetNull)
 					.HasConstraintName("fk_ResourceRelation_Resource2");
 
 				entity.HasOne(d => d.Resource)
-					.WithMany(p => p.ResourcerelationResources)
+					.WithMany(p => p.RelationResources)
 					.HasForeignKey(d => d.ResourceId)
 					.OnDelete(DeleteBehavior.ClientSetNull)
 					.HasConstraintName("fk_ResourceRelation_Resource1");

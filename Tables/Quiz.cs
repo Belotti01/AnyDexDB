@@ -1,23 +1,29 @@
-﻿namespace AnyDexDB.Tables {
-	public partial class Quiz {
-		public Quiz() {
-			Quizquestions = new HashSet<QuizQuestion>();
-			Quizratings = new HashSet<QuizRating>();
-			Quizresults = new HashSet<QuizResult>();
-			Resourcequizzes = new HashSet<ResourceQuiz>();
-		}
+﻿using System;
+using System.Collections.Generic;
 
-		public ulong Id { get; set; }
-		public ulong CreatorId { get; set; }
-		public string Title { get; set; }
-		public string Description { get; set; }
-		public ulong IsPublic { get; set; }
-		public DateTime ReleaseDate { get; set; }
+namespace AnyDexDB.Tables
+{
+    public partial class Quiz
+    {
+        public Quiz()
+        {
+            QuizQuestions = new HashSet<QuizQuestion>();
+            QuizRatings = new HashSet<QuizRating>();
+            QuizResults = new HashSet<QuizResult>();
+            ResourceQuizzes = new HashSet<ResourceQuiz>();
+        }
 
-		public virtual User Creator { get; set; }
-		public virtual ICollection<QuizQuestion> Quizquestions { get; set; }
-		public virtual ICollection<QuizRating> Quizratings { get; set; }
-		public virtual ICollection<QuizResult> Quizresults { get; set; }
-		public virtual ICollection<ResourceQuiz> Resourcequizzes { get; set; }
-	}
+        public ulong Id { get; set; }
+        public ulong CreatorId { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public ulong IsPublic { get; set; }
+        public DateTime ReleaseDate { get; set; }
+
+        public virtual User Creator { get; set; }
+        public virtual ICollection<QuizQuestion> QuizQuestions { get; set; }
+        public virtual ICollection<QuizRating> QuizRatings { get; set; }
+        public virtual ICollection<QuizResult> QuizResults { get; set; }
+        public virtual ICollection<ResourceQuiz> ResourceQuizzes { get; set; }
+    }
 }

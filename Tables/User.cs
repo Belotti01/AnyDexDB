@@ -1,4 +1,5 @@
 ﻿namespace AnyDexDB.Tables {
+	[Table("user")]
 	public partial class User {
 		public User() {
 			Accountactions = new HashSet<AccountAction>();
@@ -13,16 +14,30 @@
 			Ratings = new HashSet<Rating>();
 		}
 
+		[Key]
+		[Column("id"), Display(Name = "Id", ResourceType = typeof(Localization))]
 		public ulong Id { get; set; }
+		[Required, MaxLength(32), MinLength(4)]
+		[Column("id"), Display(Name = "Id", ResourceType = typeof(Localization))]
 		public string Username { get; set; }
+		[Required, MinLength(4), MaxLength(4)]
+		[Column("tag"), Display(Name = "Tag", ResourceType = typeof(Localization))]
 		public int Tag { get; set; }
+		[NotMapped]
 		// Write-Only password
 		public string Password { set => PasswordHash = Hashing.Sha512(value); }
+		[Required, MaxLength(128)]
+		[Column("password_hash")]
 		// Read-Only SHA512-Hashed password
 		public string PasswordHash { get; protected set; }
+		[Required]
+		[Column("email"), Display(Name = "Email", ResourceType = typeof(Localization))]
 		public string Email { get; set; }
+		[Column("full_name"), Display(Name = "Full Name", ResourceType = typeof(Localization), ShortName = "Name")]
 		public string FullName { get; set; }
-		public string Bio { get; set; }
+		[Required]
+		[Column("bio"), Display(Name = "Bio", ResourceType = typeof(Localization))]
+		public string Bio { get; set; } = string.Empty;
 
 		public virtual ICollection<AccountAction> Accountactions { get; set; }
 		public virtual ICollection<Bookmark> Bookmarks { get; set; }
