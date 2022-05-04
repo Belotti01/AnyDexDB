@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
 	<EnablePreviewFeatures>true</EnablePreviewFeatures>
+	<Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -37,11 +38,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Localization.resx</DependentUpon>
     </Compile>
-    <Compile Update="Migrations\INFO-Migations.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>INFO-Migations.md</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -53,8 +49,7 @@
 
   <ItemGroup>
     <None Update="Migrations\INFO-Migations.md">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>INFO-Migations.Designer.cs</LastGenOutput>
+      <Generator></Generator>
     </None>
   </ItemGroup>
 

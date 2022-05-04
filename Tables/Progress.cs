@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace AnyDexDB.Tables
-{
-    public partial class Progress
-    {
+﻿namespace AnyDexDB.Tables {
+	[Table("progress")]
+    public partial class Progress {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("id"), Display(Name = "ID", ResourceType = typeof(Localization))]
         public ulong Id { get; set; }
         public ulong UserId { get; set; }
         public ulong ResourceId { get; set; }
@@ -14,7 +12,9 @@ namespace AnyDexDB.Tables
         public ulong Private { get; set; }
         public sbyte Status { get; set; }
 
-        public virtual Resource Resource { get; set; }
-        public virtual User User { get; set; }
+        [NotNull]
+        public virtual Resource? Resource { get; set; }
+        [NotNull]
+        public virtual User? User { get; set; }
     }
 }

@@ -536,7 +536,7 @@ namespace AnyDexDB {
 
 				entity.Property(e => e.Id).HasColumnName("id");
 
-				entity.Property(e => e.Rating1).HasColumnName("rating");
+				entity.Property(e => e.Score).HasColumnName("rating");
 
 				entity.Property(e => e.ResourceId).HasColumnName("resource_id");
 

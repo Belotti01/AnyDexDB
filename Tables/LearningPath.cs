@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace AnyDexDB.Tables
-{
+﻿namespace AnyDexDB.Tables {
+	[Table("learning_path")]
     public partial class LearningPath
     {
         public LearningPath()
@@ -10,12 +7,15 @@ namespace AnyDexDB.Tables
             LearningSteps = new HashSet<LearningStep>();
         }
 
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("id"), Display(Name = "ID", ResourceType = typeof(Localization))]
         public ulong Id { get; set; }
         public ulong UserId { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
+        public string? Title { get; set; }
+        public string Description { get; set; } = string.Empty;
 
-        public virtual User User { get; set; }
+        [NotNull]
+        public virtual User? User { get; set; }
         public virtual ICollection<LearningStep> LearningSteps { get; set; }
     }
 }

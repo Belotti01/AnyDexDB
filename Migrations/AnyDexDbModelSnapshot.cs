@@ -538,13 +538,13 @@ namespace AnyDexDB.Migrations
                         .HasColumnType("bigint unsigned")
                         .HasColumnName("id");
 
-                    b.Property<byte>("Rating1")
-                        .HasColumnType("tinyint unsigned")
-                        .HasColumnName("rating");
-
                     b.Property<ulong>("ResourceId")
                         .HasColumnType("bigint unsigned")
                         .HasColumnName("resource_id");
+
+                    b.Property<byte>("Score")
+                        .HasColumnType("tinyint unsigned")
+                        .HasColumnName("rating");
 
                     b.Property<ulong>("UserId")
                         .HasColumnType("bigint unsigned")
@@ -568,16 +568,23 @@ namespace AnyDexDB.Migrations
                         .HasColumnName("id");
 
                     b.Property<string>("Creator")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("creator");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("description");
 
                     b.Property<DateTime?>("ReleaseDate")
                         .HasColumnType("datetime")
                         .HasColumnName("release_date");
+
+                    b.Property<string>("Summary")
+                        .IsRequired()
+                        .HasColumnType("longtext")
+                        .HasColumnName("summary");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -659,7 +666,6 @@ namespace AnyDexDB.Migrations
                         .HasColumnName("email");
 
                     b.Property<string>("FullName")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("varchar(255)")
                         .HasColumnName("full_name");

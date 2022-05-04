@@ -1,17 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace AnyDexDB.Tables
-{
-    public partial class Notification
-    {
+﻿namespace AnyDexDB.Tables {
+	[Table("notification")]
+    public partial class Notification {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("id"), Display(Name = "ID", ResourceType = typeof(Localization))]
         public ulong Id { get; set; }
+        [Required, ForeignKey("user")]
+        [Column("user_id"), Display(Name = "User ID", ResourceType = typeof(Localization))]
         public ulong UserId { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string Link { get; set; }
-        public DateTime Date { get; set; }
+        [Required]
+        [Column("title"), Display(Name = "Title", ResourceType = typeof(Localization))]
+        public string? Title { get; set; }
+        [Required]
+        [Column("description"), Display(Name = "Description", ResourceType = typeof(Localization))]
+        public string Description { get; set; } = string.Empty;
+        [Column("link"), Display(Name = "Link", ResourceType = typeof(Localization))]
+        public string? Link { get; set; }
+        [Required, Url]
+        [Column("date"), Display(Name = "Date", ResourceType = typeof(Localization))]
+        public DateTime Date { get; set; } = DateTime.Now;
 
-        public virtual User User { get; set; }
+        [NotNull]
+        [Display(Name = "User", ResourceType = typeof(Localization))]
+        public virtual User? User { get; set; }
     }
 }

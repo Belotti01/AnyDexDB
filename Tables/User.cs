@@ -14,12 +14,12 @@
 			Ratings = new HashSet<Rating>();
 		}
 
-		[Key]
-		[Column("id"), Display(Name = "Id", ResourceType = typeof(Localization))]
+		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+		[Column("id"), Display(Name = "ID", ResourceType = typeof(Localization))]
 		public ulong Id { get; set; }
 		[Required, MaxLength(32), MinLength(4)]
-		[Column("id"), Display(Name = "Id", ResourceType = typeof(Localization))]
-		public string Username { get; set; }
+		[Column("id"), Display(Name = "ID", ResourceType = typeof(Localization))]
+		public string? Username { get; set; }
 		[Required, MinLength(4), MaxLength(4)]
 		[Column("tag"), Display(Name = "Tag", ResourceType = typeof(Localization))]
 		public int Tag { get; set; }
@@ -29,12 +29,12 @@
 		[Required, MaxLength(128)]
 		[Column("password_hash")]
 		// Read-Only SHA512-Hashed password
-		public string PasswordHash { get; protected set; }
+		public string? PasswordHash { get; protected set; }
 		[Required]
 		[Column("email"), Display(Name = "Email", ResourceType = typeof(Localization))]
-		public string Email { get; set; }
+		public string? Email { get; set; }
 		[Column("full_name"), Display(Name = "Full Name", ResourceType = typeof(Localization), ShortName = "Name")]
-		public string FullName { get; set; }
+		public string? FullName { get; set; }
 		[Required]
 		[Column("bio"), Display(Name = "Bio", ResourceType = typeof(Localization))]
 		public string Bio { get; set; } = string.Empty;
