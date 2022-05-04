@@ -1,4 +1,4 @@
-# AnyDexDB
+# AnyDex DB
 Implementation of Entity Framework Core for the [AnyDex project](https://github.com/Belotti01/AnyDex), with extensions and classes that help the use of the Database into external projects.
 
 ## Usage
