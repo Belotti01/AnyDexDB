@@ -41,6 +41,7 @@ namespace AnyDexDB.Migrations
                         .HasColumnName("ip");
 
                     b.Property<string>("Location")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("location");
 
@@ -99,6 +100,7 @@ namespace AnyDexDB.Migrations
                         .HasColumnName("id");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("varchar(255)")
                         .HasColumnName("description");
@@ -159,6 +161,7 @@ namespace AnyDexDB.Migrations
                         .HasColumnName("id");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("description");
 
@@ -187,6 +190,7 @@ namespace AnyDexDB.Migrations
                         .HasColumnName("id");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("description");
 
@@ -220,11 +224,12 @@ namespace AnyDexDB.Migrations
                         .HasColumnName("id");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("description");
 
-                    b.Property<int>("Length")
-                        .HasColumnType("int")
+                    b.Property<uint>("Length")
+                        .HasColumnType("int unsigned")
                         .HasColumnName("length");
 
                     b.Property<string>("Publisher")
@@ -259,6 +264,7 @@ namespace AnyDexDB.Migrations
                         .HasColumnName("id");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("description");
 
@@ -332,10 +338,10 @@ namespace AnyDexDB.Migrations
                         .HasColumnType("datetime")
                         .HasColumnName("end_date");
 
-                    b.Property<ulong>("Private")
+                    b.Property<ulong>("IsPrivate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit(1)")
-                        .HasColumnName("private")
+                        .HasColumnName("is_private")
                         .HasDefaultValueSql("b'0'");
 
                     b.Property<ulong>("ResourceId")
@@ -348,8 +354,8 @@ namespace AnyDexDB.Migrations
                         .HasColumnName("start_date")
                         .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
-                    b.Property<sbyte>("Status")
-                        .HasColumnType("tinyint")
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
                         .HasColumnName("status");
 
                     b.Property<ulong>("UserId")
@@ -381,6 +387,7 @@ namespace AnyDexDB.Migrations
                         .HasColumnName("creator_id");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("description");
 
@@ -421,7 +428,7 @@ namespace AnyDexDB.Migrations
                         .HasColumnType("text")
                         .HasColumnName("answer");
 
-                    b.Property<ulong>("IsRight")
+                    b.Property<ulong>("IsCorrect")
                         .HasColumnType("bit(1)")
                         .HasColumnName("is_right");
 
@@ -577,7 +584,7 @@ namespace AnyDexDB.Migrations
                         .HasColumnType("text")
                         .HasColumnName("description");
 
-                    b.Property<DateTime?>("ReleaseDate")
+                    b.Property<DateTime>("ReleaseDate")
                         .HasColumnType("datetime")
                         .HasColumnName("release_date");
 

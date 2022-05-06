@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿#nullable disable
+using Microsoft.EntityFrameworkCore;
 
 // LEAVE THIS FILE AS-IS
 // This file was generated through Db-Scaffolding (Database-to-code conversion), and should
@@ -31,10 +32,10 @@ namespace AnyDexDB {
 		#endregion
 
 
-		public AnyDexDb() {
+		internal AnyDexDb() {
 		}
 
-		public AnyDexDb(DbContextOptions<AnyDexDb> options)
+		internal AnyDexDb(DbContextOptions<AnyDexDb> options)
 			: base(options) {
 		}
 
@@ -345,9 +346,9 @@ namespace AnyDexDB {
 					.HasColumnType("datetime")
 					.HasColumnName("end_date");
 
-				entity.Property(e => e.Private)
+				entity.Property(e => e.IsPrivate)
 					.HasColumnType("bit(1)")
-					.HasColumnName("private")
+					.HasColumnName("is_private")
 					.HasDefaultValueSql("b'0'");
 
 				entity.Property(e => e.ResourceId).HasColumnName("resource_id");
@@ -423,7 +424,7 @@ namespace AnyDexDB {
 					.HasColumnType("text")
 					.HasColumnName("answer");
 
-				entity.Property(e => e.IsRight)
+				entity.Property(e => e.IsCorrect)
 					.HasColumnType("bit(1)")
 					.HasColumnName("is_right");
 
