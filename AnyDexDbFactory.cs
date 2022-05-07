@@ -2,21 +2,23 @@
 using System.Threading.Tasks;
 
 namespace AnyDexDB {
-	public static class AnyDexDbFactory {
-		private static readonly DbContextOptions<AnyDexDb> options;
+	/// <summary>
+	/// Factory for <see cref="DbContext"/>s of type <see cref="AnyDexDb"/>.
+	/// </summary>
+	public class AnyDexDbFactory : IDbContextFactory<AnyDexDb> {
+		private readonly DbContextOptions<AnyDexDb> contextCreationOptions;
 
-		static AnyDexDbFactory() {
-			options = new() {
+		public AnyDexDbFactory() {
+			contextCreationOptions = new() {
 				// Eventual extensions go here
 			};
 		}
-
-		public static AnyDexDb Create() {
-			return new AnyDexDb(options);
+		public AnyDexDbFactory(DbContextOptions<AnyDexDb> options) {
+			contextCreationOptions = options;
 		}
 
-		public static async Task<AnyDexDb> CreateAsync() {
-			return await Task.Run(Create);
+		public AnyDexDb CreateDbContext() {
+			return new AnyDexDb(contextCreationOptions);
 		}
 	}
 }

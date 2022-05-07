@@ -32,10 +32,10 @@ namespace AnyDexDB {
 		#endregion
 
 
-		internal AnyDexDb() {
+		public AnyDexDb() {
 		}
 
-		internal AnyDexDb(DbContextOptions<AnyDexDb> options)
+		public AnyDexDb(DbContextOptions<AnyDexDb> options)
 			: base(options) {
 		}
 
