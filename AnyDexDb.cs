@@ -29,6 +29,12 @@ namespace AnyDexDB {
 		public virtual DbSet<ResourceQuiz> ResourceQuizzes { get; set; }
 		public virtual DbSet<ResourceRelation> ResourceRelations { get; set; }
 		public virtual DbSet<User> Users { get; set; }
+		public virtual DbSet<Role> Roles { get; set; }
+		public virtual DbSet<UserRole> UserRoles { get; set; }
+		public virtual DbSet<UserClaim> UserClaims { get; set; }
+		public virtual DbSet<UserLogin> UserLogins { get; set; }
+		public virtual DbSet<RoleClaim> RoleClaims { get; set; }
+		public virtual DbSet<UserToken> UserToken { get; set; }
 		#endregion
 
 
@@ -656,11 +662,6 @@ namespace AnyDexDB {
 					.HasColumnName("password_hash");
 
 				entity.Property(e => e.Tag).HasColumnName("tag");
-
-				entity.Property(e => e.Username)
-					.IsRequired()
-					.HasMaxLength(32)
-					.HasColumnName("username");
 			});
 
 			OnModelCreatingPartial(modelBuilder);
