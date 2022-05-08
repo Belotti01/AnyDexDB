@@ -16,11 +16,8 @@ namespace AnyDexDB.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .UseCollation("utf8_general_ci")
                 .HasAnnotation("ProductVersion", "6.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
-
-            MySqlModelBuilderExtensions.HasCharSet(modelBuilder, "utf8");
 
             modelBuilder.Entity("AnyDexDB.Tables.AccountAction", b =>
                 {
@@ -30,25 +27,22 @@ namespace AnyDexDB.Migrations
                         .HasColumnName("id");
 
                     b.Property<DateTime>("Date")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp")
-                        .HasColumnName("date")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("date");
 
                     b.Property<string>("Ip")
-                        .HasMaxLength(45)
-                        .HasColumnType("varchar(45)")
+                        .HasColumnType("longtext")
                         .HasColumnName("ip");
 
                     b.Property<string>("Location")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasColumnType("longtext")
                         .HasColumnName("location");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)")
+                        .HasMaxLength(64)
+                        .HasColumnType("varchar(64)")
                         .HasColumnName("name");
 
                     b.Property<ulong>("UserId")
@@ -57,9 +51,9 @@ namespace AnyDexDB.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex(new[] { "UserId" }, "fk_AccountAction_User1_idx");
+                    b.HasIndex("UserId");
 
-                    b.ToTable("accountaction", (string)null);
+                    b.ToTable("account_action");
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.Bookmark", b =>
@@ -70,10 +64,8 @@ namespace AnyDexDB.Migrations
                         .HasColumnName("id");
 
                     b.Property<DateTime>("Date")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp")
-                        .HasColumnName("date")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("date");
 
                     b.Property<ulong>("ResourceId")
                         .HasColumnType("bigint unsigned")
@@ -85,11 +77,11 @@ namespace AnyDexDB.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex(new[] { "ResourceId" }, "fk_Bookmark_Resource1_idx");
+                    b.HasIndex("ResourceId");
 
-                    b.HasIndex(new[] { "UserId" }, "fk_Bookmark_User1_idx");
+                    b.HasIndex("UserId");
 
-                    b.ToTable("bookmark", (string)null);
+                    b.ToTable("bookmark");
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.Category", b =>
@@ -101,22 +93,17 @@ namespace AnyDexDB.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)")
+                        .HasColumnType("longtext")
                         .HasColumnName("description");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(64)
-                        .HasColumnType("varchar(64)")
+                        .HasColumnType("longtext")
                         .HasColumnName("name");
 
                     b.HasKey("Id");
 
-                    b.HasIndex(new[] { "Name" }, "name_UNIQUE")
-                        .IsUnique();
-
-                    b.ToTable("category", (string)null);
+                    b.ToTable("category");
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.CategoryRating", b =>
@@ -128,7 +115,7 @@ namespace AnyDexDB.Migrations
 
                     b.Property<ulong>("CategoryId")
                         .HasColumnType("bigint unsigned")
-                        .HasColumnName("category_id");
+                        .HasColumnName("category");
 
                     b.Property<byte>("Rating")
                         .HasColumnType("tinyint unsigned")
@@ -144,13 +131,13 @@ namespace AnyDexDB.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex(new[] { "CategoryId" }, "fk_CategoryRating_Category1_idx");
+                    b.HasIndex("CategoryId");
 
-                    b.HasIndex(new[] { "ResourceId" }, "fk_CategoryRating_Resource1");
+                    b.HasIndex("ResourceId");
 
-                    b.HasIndex(new[] { "UserId" }, "fk_CategoryRating_User1_idx");
+                    b.HasIndex("UserId");
 
-                    b.ToTable("categoryrating", (string)null);
+                    b.ToTable("category_rating");
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.LearningPath", b =>
@@ -162,13 +149,12 @@ namespace AnyDexDB.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasColumnType("longtext")
                         .HasColumnName("description");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)")
+                        .HasColumnType("longtext")
                         .HasColumnName("title");
 
                     b.Property<ulong>("UserId")
@@ -177,9 +163,9 @@ namespace AnyDexDB.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex(new[] { "UserId" }, "fk_LearningPath_User1_idx");
+                    b.HasIndex("UserId");
 
-                    b.ToTable("learningpath", (string)null);
+                    b.ToTable("learning_path");
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.LearningStep", b =>
@@ -191,7 +177,7 @@ namespace AnyDexDB.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasColumnType("longtext")
                         .HasColumnName("description");
 
                     b.Property<ulong>("LearningPathId")
@@ -204,37 +190,37 @@ namespace AnyDexDB.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)")
+                        .HasColumnType("longtext")
                         .HasColumnName("title");
 
                     b.HasKey("Id");
 
-                    b.HasIndex(new[] { "LearningPathId" }, "fk_LearningStep_LearningPath1_idx");
+                    b.HasIndex("LearningPathId");
 
-                    b.HasIndex(new[] { "ResourceId" }, "fk_LearningStep_Resource1_idx");
+                    b.HasIndex("ResourceId");
 
-                    b.ToTable("learningstep", (string)null);
+                    b.ToTable("learning_step");
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.Material", b =>
                 {
                     b.Property<ulong>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("bigint unsigned")
                         .HasColumnName("id");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasColumnType("longtext")
                         .HasColumnName("description");
 
                     b.Property<uint>("Length")
                         .HasColumnType("int unsigned")
                         .HasColumnName("length");
 
-                    b.Property<string>("Publisher")
-                        .HasColumnType("text")
-                        .HasColumnName("publisher");
+                    b.Property<string>("Owner")
+                        .HasColumnType("longtext")
+                        .HasColumnName("owner");
 
                     b.Property<ulong>("ResourceId")
                         .HasColumnType("bigint unsigned")
@@ -242,18 +228,18 @@ namespace AnyDexDB.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasColumnType("longtext")
                         .HasColumnName("title");
 
-                    b.Property<byte>("Type")
-                        .HasColumnType("tinyint unsigned")
+                    b.Property<int>("Type")
+                        .HasColumnType("int")
                         .HasColumnName("type");
 
                     b.HasKey("Id");
 
-                    b.HasIndex(new[] { "ResourceId" }, "fk_Material_Resource1_idx");
+                    b.HasIndex("ResourceId");
 
-                    b.ToTable("material", (string)null);
+                    b.ToTable("material");
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.MaterialLink", b =>
@@ -265,55 +251,48 @@ namespace AnyDexDB.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("description");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Link")
                         .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("link");
+                        .HasColumnType("longtext");
 
                     b.Property<ulong>("MaterialId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("material_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<DateTime?>("ReleaseDate")
-                        .HasColumnType("datetime")
-                        .HasColumnName("release_date");
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex(new[] { "MaterialId" }, "fk_MaterialLink_Material1_idx");
+                    b.HasIndex("MaterialId");
 
-                    b.ToTable("materiallink", (string)null);
+                    b.ToTable("material_link");
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.Notification", b =>
                 {
                     b.Property<ulong>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("bigint unsigned")
                         .HasColumnName("id");
 
                     b.Property<DateTime>("Date")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp")
-                        .HasColumnName("date")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("date");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasColumnType("longtext")
                         .HasColumnName("description");
 
                     b.Property<string>("Link")
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)")
+                        .HasColumnType("longtext")
                         .HasColumnName("link");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)")
+                        .HasColumnType("longtext")
                         .HasColumnName("title");
 
                     b.Property<ulong>("UserId")
@@ -322,9 +301,9 @@ namespace AnyDexDB.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex(new[] { "UserId" }, "fk_Notification_user1_idx");
+                    b.HasIndex("UserId");
 
-                    b.ToTable("notification", (string)null);
+                    b.ToTable("notification");
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.Progress", b =>
@@ -335,24 +314,21 @@ namespace AnyDexDB.Migrations
                         .HasColumnName("id");
 
                     b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime")
+                        .HasColumnType("datetime(6)")
                         .HasColumnName("end_date");
 
-                    b.Property<ulong>("IsPrivate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit(1)")
-                        .HasColumnName("is_private")
-                        .HasDefaultValueSql("b'0'");
+                    b.Property<bool?>("IsPrivate")
+                        .IsRequired()
+                        .HasColumnType("tinyint(1)")
+                        .HasColumnName("is_private");
 
                     b.Property<ulong>("ResourceId")
                         .HasColumnType("bigint unsigned")
                         .HasColumnName("resource_id");
 
                     b.Property<DateTime?>("StartDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime")
-                        .HasColumnName("start_date")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("start_date");
 
                     b.Property<int>("Status")
                         .HasColumnType("int")
@@ -368,11 +344,11 @@ namespace AnyDexDB.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex(new[] { "ResourceId" }, "fk_Progress_Resource1_idx");
+                    b.HasIndex("ResourceId");
 
-                    b.HasIndex(new[] { "UserId" }, "fk_Progress_User1_idx");
+                    b.HasIndex("UserId");
 
-                    b.ToTable("progress", (string)null);
+                    b.ToTable("progress");
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.Quiz", b =>
@@ -388,32 +364,28 @@ namespace AnyDexDB.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasColumnType("longtext")
                         .HasColumnName("description");
 
-                    b.Property<ulong>("IsPublic")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit(1)")
-                        .HasColumnName("is_public")
-                        .HasDefaultValueSql("b'1'");
+                    b.Property<bool?>("IsPublic")
+                        .IsRequired()
+                        .HasColumnType("tinyint(1)")
+                        .HasColumnName("is_public");
 
                     b.Property<DateTime>("ReleaseDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp")
-                        .HasColumnName("release_date")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("release_date");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)")
+                        .HasColumnType("longtext")
                         .HasColumnName("title");
 
                     b.HasKey("Id");
 
-                    b.HasIndex(new[] { "CreatorId" }, "fk_Quiz_User1_idx");
+                    b.HasIndex("CreatorId");
 
-                    b.ToTable("quiz", (string)null);
+                    b.ToTable("quiz");
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.QuizAnswer", b =>
@@ -425,12 +397,13 @@ namespace AnyDexDB.Migrations
 
                     b.Property<string>("Answer")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasColumnType("longtext")
                         .HasColumnName("answer");
 
-                    b.Property<ulong>("IsCorrect")
-                        .HasColumnType("bit(1)")
-                        .HasColumnName("is_right");
+                    b.Property<bool?>("IsCorrect")
+                        .IsRequired()
+                        .HasColumnType("tinyint(1)")
+                        .HasColumnName("is_correct");
 
                     b.Property<ulong>("QuizQuestionId")
                         .HasColumnType("bigint unsigned")
@@ -438,9 +411,9 @@ namespace AnyDexDB.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex(new[] { "QuizQuestionId" }, "fk_QuizAnswer_QuizQuestion1_idx");
+                    b.HasIndex("QuizQuestionId");
 
-                    b.ToTable("quizanswer", (string)null);
+                    b.ToTable("quiz_answer");
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.QuizQuestion", b =>
@@ -451,18 +424,17 @@ namespace AnyDexDB.Migrations
                         .HasColumnName("id");
 
                     b.Property<string>("Hint")
-                        .HasColumnType("text")
+                        .HasColumnType("longtext")
                         .HasColumnName("hint");
 
-                    b.Property<ulong>("IsDisabled")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit(1)")
-                        .HasColumnName("is_disabled")
-                        .HasDefaultValueSql("b'0'");
+                    b.Property<bool?>("IsDisabled")
+                        .IsRequired()
+                        .HasColumnType("tinyint(1)")
+                        .HasColumnName("is_disabled");
 
                     b.Property<string>("Question")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasColumnType("longtext")
                         .HasColumnName("question");
 
                     b.Property<ulong>("QuizId")
@@ -471,9 +443,9 @@ namespace AnyDexDB.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex(new[] { "QuizId" }, "fk_QuizQuestion_Quiz1_idx");
+                    b.HasIndex("QuizId");
 
-                    b.ToTable("quizquestion", (string)null);
+                    b.ToTable("quiz_question");
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.QuizRating", b =>
@@ -497,11 +469,11 @@ namespace AnyDexDB.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex(new[] { "QuizId" }, "fk_Rating_copy1_Quiz1_idx");
+                    b.HasIndex("QuizId");
 
-                    b.HasIndex(new[] { "UserId" }, "fk_rating_user1_idx");
+                    b.HasIndex("UserId");
 
-                    b.ToTable("quizrating", (string)null);
+                    b.ToTable("quiz_rating");
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.QuizResult", b =>
@@ -512,10 +484,8 @@ namespace AnyDexDB.Migrations
                         .HasColumnName("id");
 
                     b.Property<DateTime>("Date")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp")
-                        .HasColumnName("date")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("date");
 
                     b.Property<ulong>("QuizId")
                         .HasColumnType("bigint unsigned")
@@ -531,11 +501,11 @@ namespace AnyDexDB.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex(new[] { "QuizId" }, "fk_QuizResult_Quiz1_idx");
+                    b.HasIndex("QuizId");
 
-                    b.HasIndex(new[] { "UserId" }, "fk_QuizResult_User1_idx");
+                    b.HasIndex("UserId");
 
-                    b.ToTable("quizresult", (string)null);
+                    b.ToTable("quiz_result");
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.Rating", b =>
@@ -551,7 +521,7 @@ namespace AnyDexDB.Migrations
 
                     b.Property<byte>("Score")
                         .HasColumnType("tinyint unsigned")
-                        .HasColumnName("rating");
+                        .HasColumnName("score");
 
                     b.Property<ulong>("UserId")
                         .HasColumnType("bigint unsigned")
@@ -559,12 +529,11 @@ namespace AnyDexDB.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex(new[] { "ResourceId" }, "fk_rating_resource1_idx");
+                    b.HasIndex("ResourceId");
 
-                    b.HasIndex(new[] { "UserId" }, "fk_rating_user1_idx")
-                        .HasDatabaseName("fk_rating_user1_idx1");
+                    b.HasIndex("UserId");
 
-                    b.ToTable("rating", (string)null);
+                    b.ToTable("rating");
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.Resource", b =>
@@ -576,16 +545,16 @@ namespace AnyDexDB.Migrations
 
                     b.Property<string>("Creator")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasColumnType("longtext")
                         .HasColumnName("creator");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasColumnType("longtext")
                         .HasColumnName("description");
 
                     b.Property<DateTime>("ReleaseDate")
-                        .HasColumnType("datetime")
+                        .HasColumnType("datetime(6)")
                         .HasColumnName("release_date");
 
                     b.Property<string>("Summary")
@@ -595,12 +564,12 @@ namespace AnyDexDB.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasColumnType("longtext")
                         .HasColumnName("title");
 
                     b.HasKey("Id");
 
-                    b.ToTable("resource", (string)null);
+                    b.ToTable("resource");
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.ResourceQuiz", b =>
@@ -620,11 +589,11 @@ namespace AnyDexDB.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex(new[] { "QuizId" }, "fk_ResourceQuiz_Quiz1_idx");
+                    b.HasIndex("QuizId");
 
-                    b.HasIndex(new[] { "ResourceId" }, "fk_ResourceQuiz_Resource1_idx");
+                    b.HasIndex("ResourceId");
 
-                    b.ToTable("resourcequiz", (string)null);
+                    b.ToTable("resource_quiz");
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.ResourceRelation", b =>
@@ -648,11 +617,11 @@ namespace AnyDexDB.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex(new[] { "ResourceId" }, "fk_ResourceRelation_Resource1_idx");
+                    b.HasIndex("RelatedResourceId");
 
-                    b.HasIndex(new[] { "RelatedResourceId" }, "fk_ResourceRelation_Resource2_idx");
+                    b.HasIndex("ResourceId");
 
-                    b.ToTable("resourcerelation", (string)null);
+                    b.ToTable("resource_relation");
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.Role", b =>
@@ -707,22 +676,20 @@ namespace AnyDexDB.Migrations
 
                     b.Property<string>("Bio")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasColumnType("longtext")
                         .HasColumnName("bio");
 
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("longtext");
 
                     b.Property<string>("Email")
-                        .HasColumnType("text")
-                        .HasColumnName("email");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("FullName")
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)")
+                        .HasColumnType("longtext")
                         .HasColumnName("full_name");
 
                     b.Property<bool>("LockoutEnabled")
@@ -738,10 +705,7 @@ namespace AnyDexDB.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("PasswordHash")
-                        .IsRequired()
-                        .HasMaxLength(128)
-                        .HasColumnType("varchar(128)")
-                        .HasColumnName("password_hash");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("longtext");
@@ -765,7 +729,7 @@ namespace AnyDexDB.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("user", (string)null);
+                    b.ToTable("user");
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.UserClaim", b =>
@@ -859,8 +823,8 @@ namespace AnyDexDB.Migrations
                     b.HasOne("AnyDexDB.Tables.User", "User")
                         .WithMany("Accountactions")
                         .HasForeignKey("UserId")
-                        .IsRequired()
-                        .HasConstraintName("fk_AccountAction_User1");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
@@ -870,14 +834,14 @@ namespace AnyDexDB.Migrations
                     b.HasOne("AnyDexDB.Tables.Resource", "Resource")
                         .WithMany("Bookmarks")
                         .HasForeignKey("ResourceId")
-                        .IsRequired()
-                        .HasConstraintName("fk_Bookmark_Resource1");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("AnyDexDB.Tables.User", "User")
                         .WithMany("Bookmarks")
                         .HasForeignKey("UserId")
-                        .IsRequired()
-                        .HasConstraintName("fk_Bookmark_User1");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Resource");
 
@@ -889,20 +853,20 @@ namespace AnyDexDB.Migrations
                     b.HasOne("AnyDexDB.Tables.Category", "Category")
                         .WithMany("CategoryRatings")
                         .HasForeignKey("CategoryId")
-                        .IsRequired()
-                        .HasConstraintName("fk_CategoryRating_Category1");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("AnyDexDB.Tables.Resource", "Resource")
                         .WithMany("Categoryratings")
                         .HasForeignKey("ResourceId")
-                        .IsRequired()
-                        .HasConstraintName("fk_CategoryRating_Resource1");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("AnyDexDB.Tables.User", "User")
                         .WithMany("Categoryratings")
                         .HasForeignKey("UserId")
-                        .IsRequired()
-                        .HasConstraintName("fk_CategoryRating_User1");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Category");
 
@@ -916,8 +880,8 @@ namespace AnyDexDB.Migrations
                     b.HasOne("AnyDexDB.Tables.User", "User")
                         .WithMany("Learningpaths")
                         .HasForeignKey("UserId")
-                        .IsRequired()
-                        .HasConstraintName("fk_LearningPath_User1");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
@@ -927,14 +891,14 @@ namespace AnyDexDB.Migrations
                     b.HasOne("AnyDexDB.Tables.LearningPath", "LearningPath")
                         .WithMany("LearningSteps")
                         .HasForeignKey("LearningPathId")
-                        .IsRequired()
-                        .HasConstraintName("fk_LearningStep_LearningPath1");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("AnyDexDB.Tables.Resource", "Resource")
                         .WithMany("Learningsteps")
                         .HasForeignKey("ResourceId")
-                        .IsRequired()
-                        .HasConstraintName("fk_LearningStep_Resource1");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("LearningPath");
 
@@ -946,8 +910,8 @@ namespace AnyDexDB.Migrations
                     b.HasOne("AnyDexDB.Tables.Resource", "Resource")
                         .WithMany("Materials")
                         .HasForeignKey("ResourceId")
-                        .IsRequired()
-                        .HasConstraintName("fk_Material_Resource1");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Resource");
                 });
@@ -957,8 +921,8 @@ namespace AnyDexDB.Migrations
                     b.HasOne("AnyDexDB.Tables.Material", "Material")
                         .WithMany("MaterialLinks")
                         .HasForeignKey("MaterialId")
-                        .IsRequired()
-                        .HasConstraintName("fk_MaterialLink_Material1");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Material");
                 });
@@ -968,8 +932,8 @@ namespace AnyDexDB.Migrations
                     b.HasOne("AnyDexDB.Tables.User", "User")
                         .WithMany("Notifications")
                         .HasForeignKey("UserId")
-                        .IsRequired()
-                        .HasConstraintName("fk_Notification_user1");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
@@ -979,14 +943,14 @@ namespace AnyDexDB.Migrations
                     b.HasOne("AnyDexDB.Tables.Resource", "Resource")
                         .WithMany("Progresses")
                         .HasForeignKey("ResourceId")
-                        .IsRequired()
-                        .HasConstraintName("fk_Progress_Resource1");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("AnyDexDB.Tables.User", "User")
                         .WithMany("Progresses")
                         .HasForeignKey("UserId")
-                        .IsRequired()
-                        .HasConstraintName("fk_Progress_User1");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Resource");
 
@@ -998,8 +962,8 @@ namespace AnyDexDB.Migrations
                     b.HasOne("AnyDexDB.Tables.User", "Creator")
                         .WithMany("Quizzes")
                         .HasForeignKey("CreatorId")
-                        .IsRequired()
-                        .HasConstraintName("fk_Quiz_User1");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Creator");
                 });
@@ -1009,8 +973,8 @@ namespace AnyDexDB.Migrations
                     b.HasOne("AnyDexDB.Tables.QuizQuestion", "QuizQuestion")
                         .WithMany("QuizAnswers")
                         .HasForeignKey("QuizQuestionId")
-                        .IsRequired()
-                        .HasConstraintName("fk_QuizAnswer_QuizQuestion1");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("QuizQuestion");
                 });
@@ -1020,8 +984,8 @@ namespace AnyDexDB.Migrations
                     b.HasOne("AnyDexDB.Tables.Quiz", "Quiz")
                         .WithMany("QuizQuestions")
                         .HasForeignKey("QuizId")
-                        .IsRequired()
-                        .HasConstraintName("fk_QuizQuestion_Quiz1");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Quiz");
                 });
@@ -1031,14 +995,14 @@ namespace AnyDexDB.Migrations
                     b.HasOne("AnyDexDB.Tables.Quiz", "Quiz")
                         .WithMany("QuizRatings")
                         .HasForeignKey("QuizId")
-                        .IsRequired()
-                        .HasConstraintName("fk_Rating_copy1_Quiz1");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("AnyDexDB.Tables.User", "User")
                         .WithMany("Quizratings")
                         .HasForeignKey("UserId")
-                        .IsRequired()
-                        .HasConstraintName("fk_rating_user10");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Quiz");
 
@@ -1050,14 +1014,14 @@ namespace AnyDexDB.Migrations
                     b.HasOne("AnyDexDB.Tables.Quiz", "Quiz")
                         .WithMany("QuizResults")
                         .HasForeignKey("QuizId")
-                        .IsRequired()
-                        .HasConstraintName("fk_QuizResult_Quiz1");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("AnyDexDB.Tables.User", "User")
                         .WithMany("Quizresults")
                         .HasForeignKey("UserId")
-                        .IsRequired()
-                        .HasConstraintName("fk_QuizResult_User1");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Quiz");
 
@@ -1069,14 +1033,14 @@ namespace AnyDexDB.Migrations
                     b.HasOne("AnyDexDB.Tables.Resource", "Resource")
                         .WithMany("Ratings")
                         .HasForeignKey("ResourceId")
-                        .IsRequired()
-                        .HasConstraintName("fk_rating_resource1");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("AnyDexDB.Tables.User", "User")
                         .WithMany("Ratings")
                         .HasForeignKey("UserId")
-                        .IsRequired()
-                        .HasConstraintName("fk_rating_user1");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Resource");
 
@@ -1088,14 +1052,14 @@ namespace AnyDexDB.Migrations
                     b.HasOne("AnyDexDB.Tables.Quiz", "Quiz")
                         .WithMany("ResourceQuizzes")
                         .HasForeignKey("QuizId")
-                        .IsRequired()
-                        .HasConstraintName("fk_ResourceQuiz_Quiz1");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("AnyDexDB.Tables.Resource", "Resource")
-                        .WithMany("Resourcequizzes")
+                        .WithMany("ResourceQuizzes")
                         .HasForeignKey("ResourceId")
-                        .IsRequired()
-                        .HasConstraintName("fk_ResourceQuiz_Resource1");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Quiz");
 
@@ -1107,14 +1071,14 @@ namespace AnyDexDB.Migrations
                     b.HasOne("AnyDexDB.Tables.Resource", "RelatedResource")
                         .WithMany("RelatedResources")
                         .HasForeignKey("RelatedResourceId")
-                        .IsRequired()
-                        .HasConstraintName("fk_ResourceRelation_Resource2");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("AnyDexDB.Tables.Resource", "Resource")
-                        .WithMany("RelationResources")
+                        .WithMany("RelatingResources")
                         .HasForeignKey("ResourceId")
-                        .IsRequired()
-                        .HasConstraintName("fk_ResourceRelation_Resource1");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("RelatedResource");
 
@@ -1168,9 +1132,9 @@ namespace AnyDexDB.Migrations
 
                     b.Navigation("RelatedResources");
 
-                    b.Navigation("RelationResources");
+                    b.Navigation("RelatingResources");
 
-                    b.Navigation("Resourcequizzes");
+                    b.Navigation("ResourceQuizzes");
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.User", b =>

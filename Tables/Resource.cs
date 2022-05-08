@@ -8,9 +8,9 @@
 			Materials = new HashSet<Material>();
 			Progresses = new HashSet<Progress>();
 			Ratings = new HashSet<Rating>();
-			Resourcequizzes = new HashSet<ResourceQuiz>();
+			ResourceQuizzes = new HashSet<ResourceQuiz>();
+			RelatingResources = new HashSet<ResourceRelation>();
 			RelatedResources = new HashSet<ResourceRelation>();
-			RelationResources = new HashSet<ResourceRelation>();
 		}
 
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -37,8 +37,8 @@
 		public virtual ICollection<Material> Materials { get; set; }
 		public virtual ICollection<Progress> Progresses { get; set; }
 		public virtual ICollection<Rating> Ratings { get; set; }
-		public virtual ICollection<ResourceQuiz> Resourcequizzes { get; set; }
+		public virtual ICollection<ResourceQuiz> ResourceQuizzes { get; set; }
+		public virtual ICollection<ResourceRelation> RelatingResources { get; set; }
 		public virtual ICollection<ResourceRelation> RelatedResources { get; set; }
-		public virtual ICollection<ResourceRelation> RelationResources { get; set; }
 	}
 }

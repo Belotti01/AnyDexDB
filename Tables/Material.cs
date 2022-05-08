@@ -20,10 +20,10 @@
 		[Required]
 		[Column("length"), Display(Name = "Length", ResourceType = typeof(Localization))]
 		public uint Length { get; set; } = 0;
-		[Column("length"), Display(Name = "Length", ResourceType = typeof(Localization))]
-		public byte Type { get; set; }
-		[Column("length"), Display(Name = "Length", ResourceType = typeof(Localization))]
-		public string? Publisher { get; set; }
+		[Column("type"), Display(Name = "Type", ResourceType = typeof(Localization))]
+		public MaterialType Type { get; set; }
+		[Column("owner"), Display(Name = "Owner", ResourceType = typeof(Localization))]
+		public string? Owner { get; set; }
 
 		[NotNull]
 		public virtual Resource? Resource { get; set; }
