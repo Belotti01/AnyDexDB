@@ -6,13 +6,13 @@
 		}
 
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		[Column("id"), Display(Name = "ID", ResourceType = typeof(Localization))]
+		[Display(Name = "ID", ResourceType = typeof(Localization))]
 		public ulong Id { get; set; }
 		[Required]
-		[Column("name"), Display(Name = "Name", ResourceType = typeof(Localization))]
+		[Display(Name = "Name", ResourceType = typeof(Localization))]
 		public string? Name { get; set; }
 		[Required]
-		[Column("description"), Display(Name = "Description", ShortName = "Info", ResourceType = typeof(Localization))]
+		[Display(Name = "Description", ShortName = "Info", ResourceType = typeof(Localization))]
 		public string Description { get; set; } = string.Empty;
 
 		public virtual ICollection<CategoryRating> CategoryRatings { get; set; }

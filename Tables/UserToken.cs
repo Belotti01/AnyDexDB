@@ -7,8 +7,5 @@ using System.Threading.Tasks;
 namespace AnyDexDB.Tables {
 	[Table("user_token")]
 	public class UserToken : IdentityUserToken<ulong> {
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		[Column("id")]
-		public ulong Id { get; set; }
 	}
 }

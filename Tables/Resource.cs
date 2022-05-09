@@ -14,21 +14,21 @@
 		}
 
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		[Column("id"), Display(Name = "ID", ResourceType = typeof(Localization))]
+		[Display(Name = "ID", ResourceType = typeof(Localization))]
 		public ulong Id { get; set; }
 		[Required]
-		[Column("title"), Display(Name = "Title", ResourceType = typeof(Localization))]
+		[Display(Name = "Title", ResourceType = typeof(Localization))]
 		public string? Title { get; set; }
 		[Required]
-		[Column("description"), Display(Name = "Description", ShortName = "Info", ResourceType = typeof(Localization))]
+		[Display(Name = "Description", ShortName = "Info", ResourceType = typeof(Localization))]
 		public string Description { get; set; } = string.Empty;
 		[Required]
-		[Column("summary"), Display(Name = "Summary", ResourceType = typeof(Localization))]
+		[Display(Name = "Summary", ResourceType = typeof(Localization))]
 		public string Summary { get; set; } = string.Empty;
 		[Required]
-		[Column("creator"), Display(Name = "Creator", ResourceType = typeof(Localization))]
+		[Display(Name = "Creator", ResourceType = typeof(Localization))]
 		public string Creator { get; set; } = string.Empty;
-		[Column("release_date"), Display(Name = "Release Date", ShortName = "Date", ResourceType = typeof(Localization))]
+		[Display(Name = "Release Date", ShortName = "Date", ResourceType = typeof(Localization))]
 		public DateTime ReleaseDate { get; set; }
 
 		public virtual ICollection<Bookmark> Bookmarks { get; set; }

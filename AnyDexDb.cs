@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 // NOT be edited. Expand this class in AnyDexDbExtensions.cs instead.
 
 namespace AnyDexDB {
-	public partial class AnyDexDb : DbContext {
+	public partial class AnyDexDb : IdentityDbContext<User, Role, ulong, UserClaim, UserRole, UserLogin, RoleClaim, UserToken> {
 
 		#region DbSets
 		public virtual DbSet<AccountAction> AccountActions { get; set; }
@@ -28,13 +28,6 @@ namespace AnyDexDB {
 		public virtual DbSet<Resource> Resources { get; set; }
 		public virtual DbSet<ResourceQuiz> ResourceQuizzes { get; set; }
 		public virtual DbSet<ResourceRelation> ResourceRelations { get; set; }
-		public virtual DbSet<User> Users { get; set; }
-		public virtual DbSet<Role> Roles { get; set; }
-		public virtual DbSet<UserRole> UserRoles { get; set; }
-		public virtual DbSet<UserClaim> UserClaims { get; set; }
-		public virtual DbSet<UserLogin> UserLogins { get; set; }
-		public virtual DbSet<RoleClaim> RoleClaims { get; set; }
-		public virtual DbSet<UserToken> UserToken { get; set; }
 		#endregion
 
 
@@ -54,6 +47,9 @@ namespace AnyDexDB {
 		}
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder) {
+			base.OnModelCreating(modelBuilder);
+
+			// Map the self-referencing many-to-many "Resource" table relationship
 			modelBuilder.Entity<Resource>()
 				.HasMany(x => x.RelatedResources)
 				.WithOne(x => x.RelatedResource)
@@ -63,6 +59,16 @@ namespace AnyDexDB {
 				.HasMany(x => x.RelatingResources)
 				.WithOne(x => x.Resource)
 				.HasForeignKey(x => x.ResourceId);
+
+			// Set the name for ASP.NET Identity tables (setting the TableAttribute does not work)
+			modelBuilder.Entity<User>().ToTable("user");
+			modelBuilder.Entity<Role>().ToTable("role");
+			modelBuilder.Entity<UserRole>().ToTable("user_role");
+			modelBuilder.Entity<UserClaim>().ToTable("user_claim");
+			modelBuilder.Entity<RoleClaim>().ToTable("role_claim");
+			modelBuilder.Entity<UserLogin>().ToTable("user_login");
+			modelBuilder.Entity<UserToken>().ToTable("user_token");
+			modelBuilder.Entity<UserLogin>().ToTable("user_login");
 		}
 	}
 }

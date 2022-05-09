@@ -23,31 +23,25 @@ namespace AnyDexDB.Migrations
                 {
                     b.Property<ulong>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<DateTime>("Date")
-                        .HasColumnType("datetime(6)")
-                        .HasColumnName("date");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Ip")
-                        .HasColumnType("longtext")
-                        .HasColumnName("ip");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Location")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("location");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(64)
-                        .HasColumnType("varchar(64)")
-                        .HasColumnName("name");
+                        .HasColumnType("varchar(64)");
 
                     b.Property<ulong>("UserId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("user_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.HasKey("Id");
 
@@ -60,20 +54,16 @@ namespace AnyDexDB.Migrations
                 {
                     b.Property<ulong>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<DateTime>("Date")
-                        .HasColumnType("datetime(6)")
-                        .HasColumnName("date");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<ulong>("ResourceId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("resource_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<ulong>("UserId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("user_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.HasKey("Id");
 
@@ -88,18 +78,15 @@ namespace AnyDexDB.Migrations
                 {
                     b.Property<ulong>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("description");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("name");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -110,24 +97,19 @@ namespace AnyDexDB.Migrations
                 {
                     b.Property<ulong>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<ulong>("CategoryId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("category");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<byte>("Rating")
-                        .HasColumnType("tinyint unsigned")
-                        .HasColumnName("rating");
+                        .HasColumnType("tinyint unsigned");
 
                     b.Property<ulong>("ResourceId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("resource_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<ulong>("UserId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("user_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.HasKey("Id");
 
@@ -144,22 +126,18 @@ namespace AnyDexDB.Migrations
                 {
                     b.Property<ulong>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("description");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("title");
+                        .HasColumnType("longtext");
 
                     b.Property<ulong>("UserId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("user_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.HasKey("Id");
 
@@ -172,26 +150,21 @@ namespace AnyDexDB.Migrations
                 {
                     b.Property<ulong>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("description");
+                        .HasColumnType("longtext");
 
                     b.Property<ulong>("LearningPathId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("learning_path_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<ulong>("ResourceId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("resource_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("title");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -206,34 +179,27 @@ namespace AnyDexDB.Migrations
                 {
                     b.Property<ulong>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("description");
+                        .HasColumnType("longtext");
 
                     b.Property<uint>("Length")
-                        .HasColumnType("int unsigned")
-                        .HasColumnName("length");
+                        .HasColumnType("int unsigned");
 
                     b.Property<string>("Owner")
-                        .HasColumnType("longtext")
-                        .HasColumnName("owner");
+                        .HasColumnType("longtext");
 
                     b.Property<ulong>("ResourceId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("resource_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("title");
+                        .HasColumnType("longtext");
 
                     b.Property<int>("Type")
-                        .HasColumnType("int")
-                        .HasColumnName("type");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -246,8 +212,7 @@ namespace AnyDexDB.Migrations
                 {
                     b.Property<ulong>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -274,30 +239,24 @@ namespace AnyDexDB.Migrations
                 {
                     b.Property<ulong>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<DateTime>("Date")
-                        .HasColumnType("datetime(6)")
-                        .HasColumnName("date");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("description");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Link")
-                        .HasColumnType("longtext")
-                        .HasColumnName("link");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("title");
+                        .HasColumnType("longtext");
 
                     b.Property<ulong>("UserId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("user_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.HasKey("Id");
 
@@ -310,37 +269,29 @@ namespace AnyDexDB.Migrations
                 {
                     b.Property<ulong>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime(6)")
-                        .HasColumnName("end_date");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<bool?>("IsPrivate")
                         .IsRequired()
-                        .HasColumnType("tinyint(1)")
-                        .HasColumnName("is_private");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<ulong>("ResourceId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("resource_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<DateTime?>("StartDate")
-                        .HasColumnType("datetime(6)")
-                        .HasColumnName("start_date");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int>("Status")
-                        .HasColumnType("int")
-                        .HasColumnName("status");
+                        .HasColumnType("int");
 
                     b.Property<ulong>("UserId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("user_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<uint>("Value")
-                        .HasColumnType("int unsigned")
-                        .HasColumnName("value");
+                        .HasColumnType("int unsigned");
 
                     b.HasKey("Id");
 
@@ -355,31 +306,25 @@ namespace AnyDexDB.Migrations
                 {
                     b.Property<ulong>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<ulong>("CreatorId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("creator_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("description");
+                        .HasColumnType("longtext");
 
                     b.Property<bool?>("IsPublic")
                         .IsRequired()
-                        .HasColumnType("tinyint(1)")
-                        .HasColumnName("is_public");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTime>("ReleaseDate")
-                        .HasColumnType("datetime(6)")
-                        .HasColumnName("release_date");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("title");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -392,22 +337,18 @@ namespace AnyDexDB.Migrations
                 {
                     b.Property<ulong>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<string>("Answer")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("answer");
+                        .HasColumnType("longtext");
 
                     b.Property<bool?>("IsCorrect")
                         .IsRequired()
-                        .HasColumnType("tinyint(1)")
-                        .HasColumnName("is_correct");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<ulong>("QuizQuestionId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("quiz_question_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.HasKey("Id");
 
@@ -420,26 +361,21 @@ namespace AnyDexDB.Migrations
                 {
                     b.Property<ulong>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<string>("Hint")
-                        .HasColumnType("longtext")
-                        .HasColumnName("hint");
+                        .HasColumnType("longtext");
 
                     b.Property<bool?>("IsDisabled")
                         .IsRequired()
-                        .HasColumnType("tinyint(1)")
-                        .HasColumnName("is_disabled");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Question")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("question");
+                        .HasColumnType("longtext");
 
                     b.Property<ulong>("QuizId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("quiz_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.HasKey("Id");
 
@@ -452,20 +388,16 @@ namespace AnyDexDB.Migrations
                 {
                     b.Property<ulong>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<ulong>("QuizId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("quiz_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<byte>("Rating")
-                        .HasColumnType("tinyint unsigned")
-                        .HasColumnName("rating");
+                        .HasColumnType("tinyint unsigned");
 
                     b.Property<ulong>("UserId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("user_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.HasKey("Id");
 
@@ -480,24 +412,19 @@ namespace AnyDexDB.Migrations
                 {
                     b.Property<ulong>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<DateTime>("Date")
-                        .HasColumnType("datetime(6)")
-                        .HasColumnName("date");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<ulong>("QuizId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("quiz_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<byte>("Score")
-                        .HasColumnType("tinyint unsigned")
-                        .HasColumnName("score");
+                        .HasColumnType("tinyint unsigned");
 
                     b.Property<ulong>("UserId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("user_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.HasKey("Id");
 
@@ -512,20 +439,16 @@ namespace AnyDexDB.Migrations
                 {
                     b.Property<ulong>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<ulong>("ResourceId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("resource_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<byte>("Score")
-                        .HasColumnType("tinyint unsigned")
-                        .HasColumnName("score");
+                        .HasColumnType("tinyint unsigned");
 
                     b.Property<ulong>("UserId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("user_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.HasKey("Id");
 
@@ -540,32 +463,26 @@ namespace AnyDexDB.Migrations
                 {
                     b.Property<ulong>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<string>("Creator")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("creator");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("description");
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime>("ReleaseDate")
-                        .HasColumnType("datetime(6)")
-                        .HasColumnName("release_date");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Summary")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("summary");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("title");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -576,16 +493,13 @@ namespace AnyDexDB.Migrations
                 {
                     b.Property<ulong>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<ulong>("QuizId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("quiz_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<ulong>("ResourceId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("resource_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.HasKey("Id");
 
@@ -600,20 +514,16 @@ namespace AnyDexDB.Migrations
                 {
                     b.Property<ulong>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<ulong>("RelatedResourceId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("related_resource_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<ulong>("ResourceId")
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("resource_id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<byte>("Type")
-                        .HasColumnType("tinyint unsigned")
-                        .HasColumnName("type");
+                        .HasColumnType("tinyint unsigned");
 
                     b.HasKey("Id");
 
@@ -631,17 +541,24 @@ namespace AnyDexDB.Migrations
                         .HasColumnType("bigint unsigned");
 
                     b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Name")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("NormalizedName")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("role");
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex");
+
+                    b.ToTable("role", (string)null);
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.RoleClaim", b =>
@@ -661,36 +578,37 @@ namespace AnyDexDB.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("role_claim");
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("role_claim", (string)null);
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.User", b =>
                 {
                     b.Property<ulong>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("id");
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
                     b.Property<string>("Bio")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("bio");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Email")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("FullName")
-                        .HasColumnType("longtext")
-                        .HasColumnName("full_name");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("tinyint(1)");
@@ -699,10 +617,12 @@ namespace AnyDexDB.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("NormalizedEmail")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("NormalizedUserName")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("PasswordHash")
                         .HasColumnType("longtext");
@@ -718,18 +638,25 @@ namespace AnyDexDB.Migrations
 
                     b.Property<int>("Tag")
                         .HasMaxLength(4)
-                        .HasColumnType("int")
-                        .HasColumnName("tag");
+                        .HasColumnType("int");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("UserName")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("user");
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex");
+
+                    b.ToTable("user", (string)null);
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.UserClaim", b =>
@@ -749,79 +676,70 @@ namespace AnyDexDB.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("user_claim");
+                    b.HasIndex("UserId");
+
+                    b.ToTable("user_claim", (string)null);
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.UserLogin", b =>
                 {
-                    b.Property<ulong>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("id");
-
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("longtext");
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("ProviderKey")
-                        .HasColumnType("longtext");
-
                     b.Property<ulong>("UserId")
                         .HasColumnType("bigint unsigned");
 
-                    b.HasKey("Id");
+                    b.HasKey("LoginProvider", "ProviderKey");
 
-                    b.ToTable("user_login");
+                    b.HasIndex("UserId");
+
+                    b.ToTable("user_login", (string)null);
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.UserRole", b =>
                 {
-                    b.Property<ulong>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("id");
+                    b.Property<ulong>("UserId")
+                        .HasColumnType("bigint unsigned");
 
                     b.Property<ulong>("RoleId")
                         .HasColumnType("bigint unsigned");
 
-                    b.Property<ulong>("UserId")
-                        .HasColumnType("bigint unsigned");
+                    b.HasKey("UserId", "RoleId");
 
-                    b.HasKey("Id");
+                    b.HasIndex("RoleId");
 
-                    b.ToTable("user_role");
+                    b.ToTable("user_role", (string)null);
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.UserToken", b =>
                 {
-                    b.Property<ulong>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint unsigned")
-                        .HasColumnName("id");
-
-                    b.Property<string>("LoginProvider")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("longtext");
-
                     b.Property<ulong>("UserId")
                         .HasColumnType("bigint unsigned");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("Value")
                         .HasColumnType("longtext");
 
-                    b.HasKey("Id");
+                    b.HasKey("UserId", "LoginProvider", "Name");
 
-                    b.ToTable("user_token");
+                    b.ToTable("user_token", (string)null);
                 });
 
             modelBuilder.Entity("AnyDexDB.Tables.AccountAction", b =>
                 {
                     b.HasOne("AnyDexDB.Tables.User", "User")
-                        .WithMany("Accountactions")
+                        .WithMany("AccountActions")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -863,7 +781,7 @@ namespace AnyDexDB.Migrations
                         .IsRequired();
 
                     b.HasOne("AnyDexDB.Tables.User", "User")
-                        .WithMany("Categoryratings")
+                        .WithMany("CategoryRatings")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -878,7 +796,7 @@ namespace AnyDexDB.Migrations
             modelBuilder.Entity("AnyDexDB.Tables.LearningPath", b =>
                 {
                     b.HasOne("AnyDexDB.Tables.User", "User")
-                        .WithMany("Learningpaths")
+                        .WithMany("LearningPaths")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -999,7 +917,7 @@ namespace AnyDexDB.Migrations
                         .IsRequired();
 
                     b.HasOne("AnyDexDB.Tables.User", "User")
-                        .WithMany("Quizratings")
+                        .WithMany("QuizRatings")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1018,7 +936,7 @@ namespace AnyDexDB.Migrations
                         .IsRequired();
 
                     b.HasOne("AnyDexDB.Tables.User", "User")
-                        .WithMany("Quizresults")
+                        .WithMany("QuizResults")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1085,6 +1003,57 @@ namespace AnyDexDB.Migrations
                     b.Navigation("Resource");
                 });
 
+            modelBuilder.Entity("AnyDexDB.Tables.RoleClaim", b =>
+                {
+                    b.HasOne("AnyDexDB.Tables.Role", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("AnyDexDB.Tables.UserClaim", b =>
+                {
+                    b.HasOne("AnyDexDB.Tables.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("AnyDexDB.Tables.UserLogin", b =>
+                {
+                    b.HasOne("AnyDexDB.Tables.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("AnyDexDB.Tables.UserRole", b =>
+                {
+                    b.HasOne("AnyDexDB.Tables.Role", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AnyDexDB.Tables.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("AnyDexDB.Tables.UserToken", b =>
+                {
+                    b.HasOne("AnyDexDB.Tables.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("AnyDexDB.Tables.Category", b =>
                 {
                     b.Navigation("CategoryRatings");
@@ -1139,21 +1108,21 @@ namespace AnyDexDB.Migrations
 
             modelBuilder.Entity("AnyDexDB.Tables.User", b =>
                 {
-                    b.Navigation("Accountactions");
+                    b.Navigation("AccountActions");
 
                     b.Navigation("Bookmarks");
 
-                    b.Navigation("Categoryratings");
+                    b.Navigation("CategoryRatings");
 
-                    b.Navigation("Learningpaths");
+                    b.Navigation("LearningPaths");
 
                     b.Navigation("Notifications");
 
                     b.Navigation("Progresses");
 
-                    b.Navigation("Quizratings");
+                    b.Navigation("QuizRatings");
 
-                    b.Navigation("Quizresults");
+                    b.Navigation("QuizResults");
 
                     b.Navigation("Quizzes");
 

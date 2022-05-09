@@ -41,8 +41,11 @@ namespace AnyDexDB.Testing {
 				UserName = $"test{number + 1}",
 				Email = $"test{number + 1}@test.com",
 				NormalizedUserName = $"test{number + 1}@test.com",
+				NormalizedEmail = $"test{number + 1}@test.com",
 				SecurityStamp = Guid.NewGuid().ToString(),
-				Bio = "GENERATED"
+				Bio = "GENERATED",
+				EmailConfirmed = true,
+				PhoneNumberConfirmed = true
 			};
 			user.PasswordHash = hasher.HashPassword(user, TEST_USERS_PASSWORD);
 
@@ -56,8 +59,11 @@ namespace AnyDexDB.Testing {
 				UserName = GenerateRandomUsername(8),
 				Email = $"test-{username}@test.com",
 				NormalizedUserName = $"test-{username}@test.com",
+				NormalizedEmail = $"test-{username}@test.com",
 				SecurityStamp = Guid.NewGuid().ToString(),
-				Bio = "GENERATED"
+				Bio = "GENERATED",
+				EmailConfirmed = true,
+				PhoneNumberConfirmed = true
 			};
 			user.PasswordHash = hasher.HashPassword(user, TEST_USERS_PASSWORD);
 

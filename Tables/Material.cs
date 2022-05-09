@@ -6,23 +6,23 @@
 		}
 
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		[Column("id"), Display(Name = "ID", ResourceType = typeof(Localization))]
+		[Display(Name = "ID", ResourceType = typeof(Localization))]
 		public ulong Id { get; set; }
 		[Required, ForeignKey("resource")]
-		[Column("resource_id"), Display(Name = "Resource Id", ResourceType = typeof(Localization))]
+		[Display(Name = "Resource Id", ResourceType = typeof(Localization))]
 		public ulong ResourceId { get; set; }
 		[Required]
-		[Column("title"), Display(Name = "Title", ResourceType = typeof(Localization))]
+		[Display(Name = "Title", ResourceType = typeof(Localization))]
 		public string? Title { get; set; }
 		[Required]
-		[Column("description"), Display(Name = "Description", ShortName = "Info", ResourceType = typeof(Localization))]
+		[Display(Name = "Description", ShortName = "Info", ResourceType = typeof(Localization))]
 		public string Description { get; set; } = string.Empty;
 		[Required]
-		[Column("length"), Display(Name = "Length", ResourceType = typeof(Localization))]
+		[Display(Name = "Length", ResourceType = typeof(Localization))]
 		public uint Length { get; set; } = 0;
-		[Column("type"), Display(Name = "Type", ResourceType = typeof(Localization))]
+		[Display(Name = "Type", ResourceType = typeof(Localization))]
 		public MaterialType Type { get; set; }
-		[Column("owner"), Display(Name = "Owner", ResourceType = typeof(Localization))]
+		[Display(Name = "Owner", ResourceType = typeof(Localization))]
 		public string? Owner { get; set; }
 
 		[NotNull]

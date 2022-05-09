@@ -2,7 +2,7 @@
 	[Table("material_link")]
 	public partial class MaterialLink {
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		[Column("id"), Display(Name = "ID", ResourceType = typeof(Localization))]
+		[Display(Name = "ID", ResourceType = typeof(Localization))]
 		public ulong Id { get; set; }
 		[Required, ForeignKey("material")]
 		[Display(Name = "Material ID", ResourceType = typeof(Localization))]
