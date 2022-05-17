@@ -1,7 +1,7 @@
 ﻿namespace AnyDexDB.Tables {
 	[Table("user")]
 	public partial class User : IdentityUser<ulong> {
-		[Required, MinLength(4), MaxLength(4)]
+		[Required]
 		[Display(Name = "Tag", ResourceType = typeof(Localization))]
 		public int Tag { get; set; }
 		[Display(Name = "Full Name", ResourceType = typeof(Localization), ShortName = "Name")]

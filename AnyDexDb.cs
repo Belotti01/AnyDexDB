@@ -31,11 +31,14 @@ namespace AnyDexDB {
 		#endregion
 
 
-		public AnyDexDb() {
+		public AnyDexDb() 
+			:base() {
+			Initialize();
 		}
 
 		public AnyDexDb(DbContextOptions<AnyDexDb> options)
 			: base(options) {
+			Initialize();
 		}
 
 
