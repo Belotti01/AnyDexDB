@@ -3,7 +3,8 @@ using Microsoft.EntityFrameworkCore;
 
 // LEAVE THIS FILE AS-IS
 // This file was generated through Db-Scaffolding (Database-to-code conversion), and should
-// NOT be edited. Expand this class in AnyDexDbExtensions.cs instead.
+// NOT be edited (unless to edit the DB generation method or the DbSets).
+// Expand this class in AnyDexDbExtensions.cs instead.
 
 namespace AnyDexDB {
 	public partial class AnyDexDb : IdentityDbContext<User, Role, ulong, UserClaim, UserRole, UserLogin, RoleClaim, UserToken> {
