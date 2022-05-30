@@ -12,6 +12,7 @@ namespace AnyDexDB {
 			Console.ForegroundColor = ConsoleColor.Green;
 
 			Console.WriteLine($"Users: {db.Users.Count()}");
+			Console.WriteLine($"Resources: {db.Resources.Count()}");
 
 			Console.ResetColor();
 		}

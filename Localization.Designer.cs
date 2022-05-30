@@ -79,6 +79,15 @@ namespace AnyDexDB {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Profile Picture.
+        /// </summary>
+        public static string Profile_Picture {
+            get {
+                return ResourceManager.GetString("Profile Picture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Title.
         /// </summary>
         public static string Title {

@@ -6,7 +6,7 @@
 			new ResourceGenerator(3)
 		};
 
-		public static void GenerateData(bool regenerateUsers = false) {
+		public static void GenerateData(bool regenerateUsers = true) {
 			using AnyDexDb db = new();
 
 			foreach(var generator in Generators) {

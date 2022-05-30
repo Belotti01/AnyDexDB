@@ -14,21 +14,15 @@
 		}
 
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		[Display(Name = "ID", ResourceType = typeof(Localization))]
 		public ulong Id { get; set; }
 		[Required]
-		[Display(Name = "Title", ResourceType = typeof(Localization))]
 		public string? Title { get; set; }
 		[Required]
-		[Display(Name = "Description", ShortName = "Info", ResourceType = typeof(Localization))]
 		public string Description { get; set; } = string.Empty;
 		[Required]
-		[Display(Name = "Summary", ResourceType = typeof(Localization))]
 		public string Summary { get; set; } = string.Empty;
 		[Required]
-		[Display(Name = "Creator", ResourceType = typeof(Localization))]
 		public string Creator { get; set; } = string.Empty;
-		[Display(Name = "Release Date", ShortName = "Date", ResourceType = typeof(Localization))]
 		public DateTime ReleaseDate { get; set; }
 
 		public virtual ICollection<Bookmark> Bookmarks { get; set; }

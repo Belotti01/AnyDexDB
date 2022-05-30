@@ -1,14 +1,16 @@
 ﻿namespace AnyDexDB.Tables {
 	[Table("user")]
 	public partial class User : IdentityUser<ulong> {
-		[Required]
-		[Display(Name = "Tag", ResourceType = typeof(Localization))]
-		public int Tag { get; set; }
-		[Display(Name = "Full Name", ResourceType = typeof(Localization), ShortName = "Name")]
+		[MaxLength(255)]
 		public string? FullName { get; set; }
-		[Required]
-		[Display(Name = "Bio", ResourceType = typeof(Localization))]
-		public string Bio { get; set; } = string.Empty;
+		[MaxLength(1000)]
+		public string Bio { get; set; } = "";
+		[Required(AllowEmptyStrings = true), Display(Name = "Profile Picture")]
+		// The UrlAttribute breaks the EditForms, as empty strings are still validated
+		// [Url, DisplayFormat(ConvertEmptyStringToNull = true)]
+		public string? ProfilePicture { get; set; } = "";
+		public string? Location { get; set; } = "";
+		public DateTime UtcRegistrationDate { get; init; } = DateTime.UtcNow;
 
 		[NotNull]
 		public virtual ICollection<AccountAction>? AccountActions { get; set; }

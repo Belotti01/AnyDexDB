@@ -594,7 +594,8 @@ namespace AnyDexDB.Migrations
 
                     b.Property<string>("Bio")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(1000)
+                        .HasColumnType("varchar(1000)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -608,6 +609,10 @@ namespace AnyDexDB.Migrations
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("FullName")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("Location")
                         .HasColumnType("longtext");
 
                     b.Property<bool>("LockoutEnabled")
@@ -633,12 +638,12 @@ namespace AnyDexDB.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<string>("SecurityStamp")
+                    b.Property<string>("ProfilePicture")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("Tag")
-                        .HasMaxLength(4)
-                        .HasColumnType("int");
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("tinyint(1)");
@@ -646,6 +651,9 @@ namespace AnyDexDB.Migrations
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("varchar(256)");
+
+                    b.Property<DateTime>("UtcRegistrationDate")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 
