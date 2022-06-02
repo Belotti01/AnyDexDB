@@ -10,8 +10,10 @@ namespace AnyDexDB {
 		public AnyDexDbFactory() {
 			contextCreationOptions = new() {
 				// Eventual extensions go here
+				
 			};
 		}
+
 		public AnyDexDbFactory(DbContextOptions<AnyDexDb> options) {
 			contextCreationOptions = options;
 		}

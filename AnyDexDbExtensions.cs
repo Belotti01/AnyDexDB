@@ -17,7 +17,7 @@ namespace AnyDexDB {
 
 
 		#region Events & Logging
-		
+
 		private void OnChangesApplied(object? sender, SavedChangesEventArgs e) {
 			int savedEntities = e.EntitiesSavedCount;
 			Logger.Log(LogLevel.Information, "{result} changes have been applied to the Database.", savedEntities);
