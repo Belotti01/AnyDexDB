@@ -6,8 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AnyDexDB.Testing {
-	internal class ResourceGenerator : BaseGenerator {
-		private int amount;
+	internal class ResourceGenerator : BaseGenerator<Resource> {
+		private readonly int amount;
 
 		public ResourceGenerator(int number) {
 			amount = number;

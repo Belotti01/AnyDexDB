@@ -1,7 +1,7 @@
 ﻿using System.Text;
 
 namespace AnyDexDB.Testing {
-	internal class UserGenerator : BaseGenerator {
+	internal class UserGenerator : BaseGenerator<User> {
 		private const string TEST_USERS_PASSWORD = "test";
 		private const string USERNAME_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 

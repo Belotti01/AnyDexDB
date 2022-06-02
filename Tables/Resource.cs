@@ -3,7 +3,7 @@
 	public partial class Resource {
 		public Resource() {
 			Bookmarks = new HashSet<Bookmark>();
-			Categoryratings = new HashSet<CategoryRating>();
+			CategoryRatings = new HashSet<CategoryRating>();
 			Learningsteps = new HashSet<LearningStep>();
 			Materials = new HashSet<Material>();
 			Progresses = new HashSet<Progress>();
@@ -26,7 +26,7 @@
 		public DateTime ReleaseDate { get; set; }
 
 		public virtual ICollection<Bookmark> Bookmarks { get; set; }
-		public virtual ICollection<CategoryRating> Categoryratings { get; set; }
+		public virtual ICollection<CategoryRating> CategoryRatings { get; set; }
 		public virtual ICollection<LearningStep> Learningsteps { get; set; }
 		public virtual ICollection<Material> Materials { get; set; }
 		public virtual ICollection<Progress> Progresses { get; set; }

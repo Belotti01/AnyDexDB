@@ -25,7 +25,7 @@
 				_ => "Other"
 			};
 
-			return Localization.ResourceManager.GetString(unlocalizedName) ?? "";
+			return Localization.ResourceManager.GetString(unlocalizedName) ?? unlocalizedName;
 		}
 	}
 }
