@@ -21,7 +21,7 @@ namespace AnyDexDB.Testing {
 			db.SaveChanges();
 		}
 
-		private Resource GenerateResource() {
+		private static Resource GenerateResource() {
 			return new() {
 				Title = NLRandom.RandomLetterOrNumbers(10),
 				Description = NLRandom.RandomLetterOrNumbers(64),
