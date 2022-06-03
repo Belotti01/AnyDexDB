@@ -1,4 +1,4 @@
-﻿using NL.Utils;
+﻿using AnyDexDB.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,8 +27,8 @@ namespace AnyDexDB.Testing {
 
 		private Material GenerateMaterial(ulong resourceId) {
 			return new() {
-				Title = NLRandom.RandomLetterOrNumbers(10),
-				Description = NLRandom.RandomLetterOrNumbers(64),
+				Title = RandomChars.RandomLetterOrNumbers(10),
+				Description = RandomChars.RandomLetterOrNumbers(64),
 				Length = (uint)Random.Shared.Next(1, 250),
 				Type = (MaterialType)Random.Shared.Next(Enum.GetValues<MaterialType>().Length),
 				ResourceId = resourceId

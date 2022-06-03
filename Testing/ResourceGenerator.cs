@@ -1,9 +1,4 @@
-﻿using NL.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AnyDexDB.Utils;
 
 namespace AnyDexDB.Testing {
 	internal class ResourceGenerator : BaseGenerator<Resource> {
@@ -23,8 +18,8 @@ namespace AnyDexDB.Testing {
 
 		private static Resource GenerateResource() {
 			return new() {
-				Title = NLRandom.RandomLetterOrNumbers(10),
-				Description = NLRandom.RandomLetterOrNumbers(64),
+				Title = RandomChars.RandomLetterOrNumbers(10),
+				Description = RandomChars.RandomLetterOrNumbers(64),
 			};
 		}
 	}
