@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AnyDexDB.Testing {
 	internal class MaterialGenerator : BaseGenerator<Material> {
-		private int amount;
+		private readonly int amount;
 
 		public MaterialGenerator(int number) {
 			amount = number;
