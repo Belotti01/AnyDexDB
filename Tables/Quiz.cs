@@ -18,6 +18,8 @@
 		[Required]
 		public bool? IsPublic { get; set; }
 		public DateTime ReleaseDate { get; set; }
+		[Required]
+		public string LanguageCode { get; set; }
 
 		[NotNull]
 		public virtual User? Creator { get; set; }

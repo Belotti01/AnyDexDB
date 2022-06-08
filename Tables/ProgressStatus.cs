@@ -23,7 +23,8 @@
 				_ => "None"
 			};
 
-			return Localization.ResourceManager.GetString(unlocalizedName) ?? "";
+			return unlocalizedName;
+			//return Localization.ResourceManager.GetString(unlocalizedName) ?? "";
 		}
 	}
 }
