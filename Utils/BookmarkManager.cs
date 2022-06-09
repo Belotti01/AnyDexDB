@@ -4,9 +4,13 @@ using System.Threading.Tasks;
 namespace AnyDexDB.Utils {
 	public class BookmarkManager {
 		protected AnyDexDb _dbContext;
-		
+
 		public BookmarkManager(AnyDexDb db) {
 			_dbContext = db;
+		}
+
+		public BookmarkManager() {
+			_dbContext = new AnyDexDbFactory().CreateDbContext();
 		}
 
 		public Bookmark? Find(ulong userId, ulong resourceId) {
