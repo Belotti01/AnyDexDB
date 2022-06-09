@@ -5,7 +5,7 @@
 		public string? FullName { get; set; }
 		[MaxLength(1000)]
 		public string Bio { get; set; } = "";
-		[Required(AllowEmptyStrings = true), Display(Name = "Profile Picture")]
+		[Required(AllowEmptyStrings = true)]
 		// The UrlAttribute breaks the EditForms, as empty strings are still validated
 		// [Url, DisplayFormat(ConvertEmptyStringToNull = true)]
 		public string? ProfilePicture { get; set; } = "";

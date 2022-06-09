@@ -19,9 +19,9 @@ namespace AnyDexDB.Tables {
 		public DateTime UtcFlagDate { get; set; } = DateTime.Now;
 
 
-		[NotNull, Display(Name = "User", ResourceType = typeof(Localization))]
+		[NotNull]
 		public virtual User? User { get; set; }
-		[NotNull, Display(Name = "Material", ResourceType = typeof(Localization))]
+		[NotNull]
 		public virtual Material? Material { get; set; }
 	}
 }
