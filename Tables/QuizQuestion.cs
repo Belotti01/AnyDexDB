@@ -12,6 +12,7 @@
 		[Required]
 		public string? Question { get; set; }
 		public string? Hint { get; set; }
+		public string? ImageUrl { get; set; }
 		[Required]
 		public bool? IsDisabled { get; set; } = false;
 
