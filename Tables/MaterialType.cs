@@ -10,10 +10,10 @@
 
 	public static class MaterialTypeExtensions {
 		/// <summary>
-		/// Localize the name of the specified <paramref name="type"/>.
+		/// Get the name of the specified <paramref name="type"/>.
 		/// </summary>
 		/// <param name="type"> The status to convert to text. </param>
-		/// <returns> The localized name of the specified <paramref name="type"/>. </returns>
+		/// <returns> The english name of the specified <paramref name="type"/>. </returns>
 		public static string ToText(this MaterialType type) {
 			// Using a switch is much faster than using Enum.ToString()
 			string unlocalizedName = type switch {
@@ -25,7 +25,7 @@
 				_ => "Other"
 			};
 
-			return Localization.ResourceManager.GetString(unlocalizedName) ?? unlocalizedName;
+			return unlocalizedName;
 		}
 	}
 }
