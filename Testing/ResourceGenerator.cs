@@ -22,10 +22,10 @@ namespace AnyDexDB.Testing {
 
 		private static Resource GenerateResource() {
 			return new() {
-				Title = Randomizer.RandomLetterOrNumbers(10),
-				Description = Randomizer.RandomLetterOrNumbers(64),
-				Creator = Randomizer.RandomLetterOrNumbers(32),
-				Summary = Randomizer.RandomLetters(128),
+				Title = Randomizer.LoremIpsium(0, 40),
+				Description = Randomizer.LoremIpsium(10, 150),
+				Creator = Randomizer.RandomLetterOrNumbers(20),
+				Summary = Randomizer.LoremIpsium(10, 150),
 				ReleaseDate = Randomizer.RandomDay()
 			};
 		}

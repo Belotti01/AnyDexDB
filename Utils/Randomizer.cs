@@ -2,6 +2,14 @@
 
 namespace AnyDexDB.Utils {
 	public static class Randomizer {
+		public static string LoremIpsium(int minLength, int maxLength) {
+			int length = Random.Shared.Next(minLength, maxLength + 1);
+			int maxStartIndex = Constants.LoremIpsium.Length - length - 1;
+			int startIndex = Random.Shared.Next(0, maxStartIndex);
+
+			return Constants.LoremIpsium[startIndex..(startIndex + length)];
+		}
+
 		public static char RandomLetter(bool randomCase = true) {
 			char c = (char)Random.Shared.Next('A', 'Z' + 1);
 			if(randomCase && Random.Shared.Next(2) == 1) {

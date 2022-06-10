@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using AnyDexDB.Utils;
+using System.Text;
 
 namespace AnyDexDB.Testing {
 	internal class UserGenerator : BaseGenerator<User> {
@@ -40,7 +41,7 @@ namespace AnyDexDB.Testing {
 				NormalizedUserName = $"test{number + 1}@test.com",
 				NormalizedEmail = $"test{number + 1}@test.com",
 				SecurityStamp = Guid.NewGuid().ToString(),
-				Bio = "GENERATED",
+				Bio = Randomizer.LoremIpsium(10, 150),
 				EmailConfirmed = true,
 				PhoneNumberConfirmed = true
 			};
