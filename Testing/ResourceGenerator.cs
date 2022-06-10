@@ -22,8 +22,11 @@ namespace AnyDexDB.Testing {
 
 		private static Resource GenerateResource() {
 			return new() {
-				Title = RandomChars.RandomLetterOrNumbers(10),
-				Description = RandomChars.RandomLetterOrNumbers(64),
+				Title = Randomizer.RandomLetterOrNumbers(10),
+				Description = Randomizer.RandomLetterOrNumbers(64),
+				Creator = Randomizer.RandomLetterOrNumbers(32),
+				Summary = Randomizer.RandomLetters(128),
+				ReleaseDate = Randomizer.RandomDay()
 			};
 		}
 	}
