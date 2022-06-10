@@ -1,22 +1,22 @@
 ﻿namespace AnyDexDB.Testing {
 	public static class DummyGenerator {
 
-		public static void GenerateData(bool regenerateUsers = false) {
+		public static void GenerateData(bool regenerateUsers = false, bool regenerateOthers = false) {
 			using AnyDexDb db = new();
 
 			if(regenerateUsers || !UserGenerator.HasData(db)) {
-				UserGenerator users = new(10, 10, regenerateUsers);
-				users.GenerateData(db);
+				UserGenerator users = new(10, 10);
+				users.GenerateData(db, regenerateUsers);
 			}
 
-			if(!ResourceGenerator.HasData(db)) {
+			if(regenerateOthers || !ResourceGenerator.HasData(db)) {
 				ResourceGenerator resources = new(30);
-				resources.GenerateData(db);
+				resources.GenerateData(db, regenerateOthers);
 			}
 
-			if(!MaterialGenerator.HasData(db)) {
+			if(regenerateOthers || !MaterialGenerator.HasData(db)) {
 				MaterialGenerator material = new(5);
-				material.GenerateData(db);
+				material.GenerateData(db, regenerateOthers);
 			}
 
 			db.SaveChanges();

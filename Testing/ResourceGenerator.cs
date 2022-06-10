@@ -8,7 +8,11 @@ namespace AnyDexDB.Testing {
 			amount = number;
 		}
 
-		internal override void GenerateData(AnyDexDb db) {
+		internal override void GenerateData(AnyDexDb db, bool forceRegenerate = false) {
+			if(forceRegenerate) {
+				db.Resources.RemoveRange(db.Resources);
+			}
+
 			for(int i = 0; i < amount; i++) {
 				db.Add(GenerateResource());
 			}

@@ -7,18 +7,15 @@ namespace AnyDexDB.Testing {
 
 		private readonly PasswordHasher<User> hasher = new();
 		private readonly int testUsers, randomUsers;
-		private readonly bool deletePrevious;
 
-		internal UserGenerator(int testUsersCount, int randomUsersCount, bool deletePrevious = true) {
+		internal UserGenerator(int testUsersCount, int randomUsersCount) {
 			testUsers = testUsersCount;
 			randomUsers = randomUsersCount;
-			this.deletePrevious = deletePrevious;
 		}
 
-		internal override void GenerateData(AnyDexDb db) {
-			if(deletePrevious) {
-				// Remove previously generated users
-				db.RemoveRange(db.Users.Where(x => x.Bio == "GENERATED"));
+		internal override void GenerateData(AnyDexDb db, bool forceRegenerate = false) {
+			if(forceRegenerate) {
+				db.Users.RemoveRange(db.Users);
 			}
 			db.AddRange(GenerateUsers(testUsers, randomUsers));
 		}

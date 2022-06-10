@@ -13,7 +13,11 @@ namespace AnyDexDB.Testing {
 			amount = number;
 		}
 
-		internal override void GenerateData(AnyDexDb db) {
+		internal override void GenerateData(AnyDexDb db, bool forceRegenerate = false) {
+			if(forceRegenerate) {
+				db.Materials.RemoveRange(db.Materials);
+            }
+
 			foreach(Resource resource in db.Resources) {
 				if(!resource.Materials.Any()) {
 					for(int i = 0; i < amount; i++) {
