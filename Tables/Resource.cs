@@ -23,6 +23,7 @@
 		public string Summary { get; set; } = string.Empty;
 		[Required]
 		public string Creator { get; set; } = string.Empty;
+		public string ImageUrl { get; set; } = string.Empty;
 		public DateTime ReleaseDate { get; set; }
 
 		public virtual ICollection<Bookmark> Bookmarks { get; set; }
