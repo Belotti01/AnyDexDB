@@ -64,5 +64,9 @@ namespace AnyDexDB.Utils {
 
 			return true;
 		}
+
+		public void SaveChanges() {
+			_dbContext.SaveChanges();
+		}
 	}
 }
