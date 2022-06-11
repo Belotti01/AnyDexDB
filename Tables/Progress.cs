@@ -5,8 +5,8 @@
 		public ulong Id { get; set; }
 		[Required, ForeignKey("user")]
 		public ulong UserId { get; set; }
-		[Required, ForeignKey("resource")]
-		public ulong ResourceId { get; set; }
+		[Required, ForeignKey("material")]
+		public ulong MaterialId { get; set; }
 		[Required]
 		public uint Value { get; set; } = 0;
 		public DateTime? StartDate { get; set; }
@@ -17,7 +17,7 @@
 		public ProgressStatus Status { get; set; } = ProgressStatus.None;
 		
 		[NotNull]
-		public virtual Resource? Resource { get; set; }
+		public virtual Resource? Material { get; set; }
 		[NotNull]
 		public virtual User? User { get; set; }
 	}

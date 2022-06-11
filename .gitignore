@@ -369,3 +369,4 @@ MigrationBackup/
 FodyWeavers.xsd
 /Migrations/20220504174217_InitialCreate.Designer.cs
 /Migrations/20220504174217_InitialCreate.cs
+/Program.cs

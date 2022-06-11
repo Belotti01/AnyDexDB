@@ -2,6 +2,7 @@
 	[Table("material")]
 	public partial class Material {
 		public Material() {
+			Progresses = new HashSet<Progress>();
 			MaterialLinks = new HashSet<MaterialLink>();
 		}
 
@@ -20,6 +21,7 @@
 
 		[NotNull]
 		public virtual Resource? Resource { get; set; }
+		public virtual ICollection<Progress> Progresses { get; set; }
 		public virtual ICollection<MaterialLink> MaterialLinks { get; set; }
 	}
 }
