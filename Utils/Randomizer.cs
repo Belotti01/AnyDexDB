@@ -3,10 +3,16 @@
 namespace AnyDexDB.Utils {
 	public static class Randomizer {
 		public static string LoremIpsium(int minLength, int maxLength) {
+			// Randomize the length
 			int length = Random.Shared.Next(minLength, maxLength + 1);
+			// Randomize the starting position
 			int maxStartIndex = Constants.LoremIpsium.Length - length - 1;
 			int startIndex = Random.Shared.Next(0, maxStartIndex);
-
+			// Step back until the start of a word is found
+			while(startIndex > 0 && Constants.LoremIpsium[startIndex - 1] != ' ') {
+				startIndex--;
+			}
+			
 			return Constants.LoremIpsium[startIndex..(startIndex + length)];
 		}
 
