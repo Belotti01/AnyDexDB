@@ -48,7 +48,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Migrations\INFO-Migations.md">
+    <None Update="Migrations\INFO-Migrations.md">
       <Generator></Generator>
     </None>
   </ItemGroup>
