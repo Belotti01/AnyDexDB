@@ -61,7 +61,7 @@ namespace AnyDexDB {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id aliquet risus feugiat in ante. Donec ultrices tincidunt arcu non sodales neque sodales. Volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in. Dui vivamus arcu felis bibendum ut. Suspendisse in est ante in nibh mauris. Velit scelerisque in dictum non consectetur a. Tristique nulla aliquet enim tortor at auctor urna nunc id. Vivamus at augue eget arcu dictum vari [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to .
         /// </summary>
         internal static string LoremIpsium {
             get {
