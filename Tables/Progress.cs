@@ -17,7 +17,7 @@
 		public ProgressStatus Status { get; set; } = ProgressStatus.None;
 		
 		[NotNull]
-		public virtual Resource? Material { get; set; }
+		public virtual Material? Material { get; set; }
 		[NotNull]
 		public virtual User? User { get; set; }
 	}
