@@ -16,6 +16,7 @@
 		public string Description { get; set; } = string.Empty;
 		[Required]
 		public uint Length { get; set; } = 0;
+		public DateTime? ReleaseDate { get; set; }
 		public MaterialType Type { get; set; }
 		public string? Owner { get; set; }
 
