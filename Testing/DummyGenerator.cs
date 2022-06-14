@@ -15,7 +15,12 @@
 			}
 
 			if(regenerateOthers || !MaterialGenerator.HasData(db)) {
-				MaterialGenerator material = new(5);
+				MaterialGenerator material = new(Random.Shared.Next(4, 7));
+				material.GenerateData(db, regenerateOthers);
+			}
+
+			if(regenerateOthers || !MaterialLinkGenerator.HasData(db)) {
+				MaterialLinkGenerator material = new(Random.Shared.Next(4, 7));
 				material.GenerateData(db, regenerateOthers);
 			}
 
