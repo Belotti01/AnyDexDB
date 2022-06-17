@@ -1,4 +1,6 @@
-﻿namespace AnyDexDB.Tables {
+﻿using System.Drawing;
+
+namespace AnyDexDB.Tables {
 	public enum MaterialType {
 		Book,
 		Ebook,
@@ -26,6 +28,18 @@
 			};
 
 			return unlocalizedName;
+		}
+
+		public static Color GetColor(this MaterialType type) {
+			return type switch {
+				MaterialType.Book => Color.SandyBrown,
+				MaterialType.Ebook => Color.Orange,
+				MaterialType.Course => Color.IndianRed,
+				MaterialType.Video => Color.Azure,
+				MaterialType.Article => Color.Yellow,
+				MaterialType.Other => Color.Green,
+				_ => Color.Gray
+			};
 		}
 	}
 }
