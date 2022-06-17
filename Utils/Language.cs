@@ -2,11 +2,9 @@
 namespace AnyDexDB.Utils {
 	public static class Languages {
 		private static readonly Dictionary<string, Language> _languages;
-
+		public static readonly Language[] All = new Language[] { English, Italian, French };
 		static Languages() {
-			Language[] allLanguages = new Language[] { English, Italian, French };
-
-			_languages = allLanguages
+			_languages = All
 				.ToDictionary(x => x.Code);
 		}
 
