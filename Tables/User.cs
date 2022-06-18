@@ -25,12 +25,14 @@
 		[NotNull]
 		public virtual ICollection<Progress>? Progresses { get; set; }
 		[NotNull]
-		public virtual ICollection<QuizRating>? QuizRatings { get; set; }
-		[NotNull]
 		public virtual ICollection<QuizResult>? QuizResults { get; set; }
 		[NotNull]
 		public virtual ICollection<Quiz>? Quizzes { get; set; }
 		[NotNull]
-		public virtual ICollection<Rating>? Ratings { get; set; }
+		public virtual ICollection<ResourceRating>? ResourceRatings { get; set; }
+		[NotNull]
+		public virtual ICollection<MaterialRating>? MaterialRatings { get; set; }
+		[NotNull]
+		public virtual ICollection<QuizRating>? QuizRatings { get; set; }
 	}
 }
