@@ -25,7 +25,8 @@ namespace AnyDexDB {
 		public virtual DbSet<QuizQuestion> QuizQuestions { get; set; }
 		public virtual DbSet<QuizRating> QuizRatings { get; set; }
 		public virtual DbSet<QuizResult> QuizResults { get; set; }
-		public virtual DbSet<Rating> Ratings { get; set; }
+		public virtual DbSet<ResourceRating> ResourceRatings { get; set; }
+		public virtual DbSet<MaterialRating> MaterialRatings { get; set; }
 		public virtual DbSet<Resource> Resources { get; set; }
 		public virtual DbSet<ResourceQuiz> ResourceQuizzes { get; set; }
 		public virtual DbSet<ResourceRelation> ResourceRelations { get; set; }

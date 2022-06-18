@@ -4,6 +4,7 @@
 		public Material() {
 			Progresses = new HashSet<Progress>();
 			MaterialLinks = new HashSet<MaterialLink>();
+			MaterialRatings = new HashSet<MaterialRating>();
 		}
 
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -23,6 +24,7 @@
 		[NotNull]
 		public virtual Resource? Resource { get; set; }
 		public virtual ICollection<Progress> Progresses { get; set; }
+		public virtual ICollection<MaterialRating> MaterialRatings { get; set; }
 		public virtual ICollection<MaterialLink> MaterialLinks { get; set; }
 	}
 }

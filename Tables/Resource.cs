@@ -6,7 +6,7 @@
 			CategoryRatings = new HashSet<CategoryRating>();
 			Learningsteps = new HashSet<LearningStep>();
 			Materials = new HashSet<Material>();
-			Ratings = new HashSet<Rating>();
+			ResourceRatings = new HashSet<ResourceRating>();
 			ResourceQuizzes = new HashSet<ResourceQuiz>();
 			RelatingResources = new HashSet<ResourceRelation>();
 			RelatedResources = new HashSet<ResourceRelation>();
@@ -29,7 +29,7 @@
 		public virtual ICollection<CategoryRating> CategoryRatings { get; set; }
 		public virtual ICollection<LearningStep> Learningsteps { get; set; }
 		public virtual ICollection<Material> Materials { get; set; }
-		public virtual ICollection<Rating> Ratings { get; set; }
+		public virtual ICollection<ResourceRating> ResourceRatings { get; set; }
 		public virtual ICollection<ResourceQuiz> ResourceQuizzes { get; set; }
 		public virtual ICollection<ResourceRelation> RelatingResources { get; set; }
 		public virtual ICollection<ResourceRelation> RelatedResources { get; set; }
