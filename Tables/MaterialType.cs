@@ -30,15 +30,15 @@ namespace AnyDexDB.Tables {
 			return unlocalizedName;
 		}
 
-		public static Color GetColor(this MaterialType type) {
+		public static string GetHexColor(this MaterialType type) {
 			return type switch {
-				MaterialType.Book => Color.SandyBrown,
-				MaterialType.Ebook => Color.Orange,
-				MaterialType.Course => Color.IndianRed,
-				MaterialType.Video => Color.Azure,
-				MaterialType.Article => Color.Yellow,
-				MaterialType.Other => Color.Green,
-				_ => Color.Gray
+				MaterialType.Book => "#EDAF19",
+				MaterialType.Ebook => "#F46302",
+				MaterialType.Course => "#F46302",
+				MaterialType.Video => "#00d659",
+				MaterialType.Article => "#0F569A",
+				MaterialType.Other => "#444444",
+				_ => "#000000"
 			};
 		}
 	}
