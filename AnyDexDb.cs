@@ -54,6 +54,7 @@ namespace AnyDexDB {
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder) {
 			base.OnModelCreating(modelBuilder);
+			modelBuilder.UseIdentityColumns();
 
 			// Map the self-referencing many-to-many "Resource" table relationship
 			modelBuilder.Entity<Resource>()
