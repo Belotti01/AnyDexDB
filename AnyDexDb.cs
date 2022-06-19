@@ -30,6 +30,9 @@ namespace AnyDexDB {
 		public virtual DbSet<Resource> Resources { get; set; }
 		public virtual DbSet<ResourceQuiz> ResourceQuizzes { get; set; }
 		public virtual DbSet<ResourceRelation> ResourceRelations { get; set; }
+		public virtual DbSet<ResourceComment> ResourceComments { get; set; }
+		public virtual DbSet<MaterialComment> MaterialComments { get; set; }
+		public virtual DbSet<QuizComment> QuizComments { get; set; }
 		#endregion
 
 

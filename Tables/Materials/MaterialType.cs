@@ -1,6 +1,4 @@
-﻿using Color = System.Drawing.Color;
-
-namespace AnyDexDB.Tables {
+﻿namespace AnyDexDB.Tables {
 	public enum MaterialType {
 		Book,
 		Ebook,

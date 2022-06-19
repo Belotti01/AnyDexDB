@@ -21,10 +21,13 @@
 		public MaterialType Type { get; set; }
 		public string? Owner { get; set; }
 
-		[NotNull]
+		[NotNull, JsonIgnore]
 		public virtual Resource? Resource { get; set; }
+		[JsonIgnore]
 		public virtual ICollection<Progress> Progresses { get; set; }
+		[JsonIgnore]
 		public virtual ICollection<MaterialRating> MaterialRatings { get; set; }
+		[JsonIgnore]
 		public virtual ICollection<MaterialLink> MaterialLinks { get; set; }
 	}
 }

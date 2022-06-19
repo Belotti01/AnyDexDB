@@ -7,3 +7,4 @@ global using System.ComponentModel.DataAnnotations.Schema;
 global using System.Diagnostics.CodeAnalysis;
 global using Microsoft.AspNetCore.Identity;
 global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+global using System.Text.Json.Serialization;

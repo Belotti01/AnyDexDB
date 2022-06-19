@@ -25,13 +25,21 @@
 		public string ImageUrl { get; set; } = string.Empty;
 		public DateTime? ReleaseDate { get; set; }
 
+		[JsonIgnore]
 		public virtual ICollection<Bookmark> Bookmarks { get; set; }
+		[JsonIgnore]
 		public virtual ICollection<CategoryRating> CategoryRatings { get; set; }
+		[JsonIgnore]
 		public virtual ICollection<LearningStep> Learningsteps { get; set; }
+		[JsonIgnore]
 		public virtual ICollection<Material> Materials { get; set; }
+		[JsonIgnore]
 		public virtual ICollection<ResourceRating> ResourceRatings { get; set; }
+		[JsonIgnore]
 		public virtual ICollection<ResourceQuiz> ResourceQuizzes { get; set; }
+		[JsonIgnore]
 		public virtual ICollection<ResourceRelation> RelatingResources { get; set; }
+		[JsonIgnore]
 		public virtual ICollection<ResourceRelation> RelatedResources { get; set; }
 	}
 }

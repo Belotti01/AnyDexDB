@@ -9,7 +9,6 @@
 		public string? Name { get; set; }
 		[Required]
 		public DateTime Date { get; set; } = DateTime.Now;
-		[Required]
 		public string? Location { get; set; }
 		public string? Ip { get; set; }
 

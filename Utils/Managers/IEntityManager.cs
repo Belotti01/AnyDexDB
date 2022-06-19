@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-namespace AnyDexDB.Utils.Managers {
+﻿namespace AnyDexDB.Utils.Managers {
 	internal interface IEntityManager<TEntity, TId> where TEntity : class {
 
 		/// <summary>

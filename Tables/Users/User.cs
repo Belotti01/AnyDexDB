@@ -34,5 +34,6 @@
 		public virtual ICollection<MaterialRating>? MaterialRatings { get; set; }
 		[NotNull]
 		public virtual ICollection<QuizRating>? QuizRatings { get; set; }
+
 	}
 }
