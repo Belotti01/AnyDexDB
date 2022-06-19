@@ -2,9 +2,9 @@
 	[Table("progress")]
 	public partial class Progress : EntityBase {
 		[Required, ForeignKey("user")]
-		public ulong UserId { get; set; }
+		public int UserId { get; set; }
 		[Required, ForeignKey("material")]
-		public ulong MaterialId { get; set; }
+		public int MaterialId { get; set; }
 		[Required]
 		public uint Value { get; set; } = 0;
 		public DateTime? StartDate { get; set; }

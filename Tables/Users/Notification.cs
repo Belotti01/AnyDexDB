@@ -2,7 +2,7 @@
 	[Table("notification")]
 	public partial class Notification : EntityBase {
 		[Required, ForeignKey("user")]
-		public ulong UserId { get; set; }
+		public int UserId { get; set; }
 		[Required]
 		public string? Title { get; set; }
 		[Required]

@@ -4,9 +4,9 @@
 		[Required, EnumDataType(typeof(Flag))]
 		public Flag Flags { get; set; } = Flag.None;
 		[Required, ForeignKey("material")]
-		public ulong MaterialId { get; set; }
+		public int MaterialId { get; set; }
 		[Required, ForeignKey("user")]
-		public ulong UserId { get; set; }
+		public int UserId { get; set; }
 		public DateOnly PublishDate { get; set; }
 		public DateTime UtcFlagDate { get; set; } = DateTime.Now;
 

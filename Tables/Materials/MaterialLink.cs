@@ -2,7 +2,7 @@
 	[Table("material_link")]
 	public partial class MaterialLink : EntityBase {
 		[Required, ForeignKey("material")]
-		public ulong MaterialId { get; set; }
+		public int MaterialId { get; set; }
 		[Required, Url]
 		public string? Link { get; set; }
 		[Required]

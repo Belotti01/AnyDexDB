@@ -8,7 +8,7 @@
 		}
 
 		[Required, ForeignKey("resource")]
-		public ulong ResourceId { get; set; }
+		public int ResourceId { get; set; }
 		[Required]
 		public string? Title { get; set; }
 		[Required]

@@ -2,9 +2,9 @@
 	[Table("resource_quiz")]
 	public partial class ResourceQuiz : EntityBase {
 		[Required, ForeignKey("resource")]
-		public ulong ResourceId { get; set; }
+		public int ResourceId { get; set; }
 		[Required, ForeignKey("quiz")]
-		public ulong QuizId { get; set; }
+		public int QuizId { get; set; }
 
 		[NotNull, JsonIgnore]
 		public virtual Quiz? Quiz { get; set; }

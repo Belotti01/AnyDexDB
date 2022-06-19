@@ -3,9 +3,9 @@
 	public partial class ResourceRelation : EntityBase {
 		public byte Type { get; set; }
 		[Required, ForeignKey("resource")]
-		public ulong ResourceId { get; set; }
+		public int ResourceId { get; set; }
 		[Required, ForeignKey("resource")]
-		public ulong RelatedResourceId { get; set; }
+		public int RelatedResourceId { get; set; }
 
 		[NotNull, JsonIgnore]
 		public virtual Resource? Resource { get; set; }

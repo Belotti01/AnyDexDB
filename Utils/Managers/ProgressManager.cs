@@ -1,5 +1,5 @@
 ﻿namespace AnyDexDB.Utils.Managers {
-	public class ProgressManager : EntityManager<Progress, ulong> {
+	public class ProgressManager : EntityManager<Progress, int> {
 		
 	}
 }

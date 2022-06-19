@@ -1,6 +1,6 @@
 ﻿namespace AnyDexDB.Tables {
 	[Table("user")]
-	public partial class User : IdentityUser<ulong>, IIdentifiable<ulong> {
+	public partial class User : IdentityUser<int>, IIdentifiable<int> {
 		[MaxLength(255)]
 		public string? FullName { get; set; }
 		[MaxLength(1000)]

@@ -3,7 +3,7 @@
 		[Required]
 		public abstract int TargetId { get; set; }
 		[Required, ForeignKey("user")]
-		public ulong UserId { get; set; }
+		public int UserId { get; set; }
 		[Required]
 		public byte Rating { get; set; }
 		public string Review { get; set; } = "";

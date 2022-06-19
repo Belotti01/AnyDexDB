@@ -2,9 +2,9 @@
 	[Table("quiz_result")]
 	public partial class QuizResult : EntityBase {
 		[Required, ForeignKey("user")]
-		public ulong UserId { get; set; }
+		public int UserId { get; set; }
 		[Required, ForeignKey("quiz")]
-		public ulong QuizId { get; set; }
+		public int QuizId { get; set; }
 		[Required]
 		public DateTime Date { get; set; } = DateTime.Now;
 		[Required]

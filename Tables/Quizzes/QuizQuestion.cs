@@ -6,7 +6,7 @@
 		}
 
 		[Required, ForeignKey("quiz")]
-		public ulong QuizId { get; set; }
+		public int QuizId { get; set; }
 		[Required]
 		public string? Question { get; set; }
 		public string? Hint { get; set; }

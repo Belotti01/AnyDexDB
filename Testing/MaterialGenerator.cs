@@ -24,7 +24,7 @@ namespace AnyDexDB.Testing {
 			db.SaveChanges();
 		}
 
-		private Material GenerateMaterial(ulong resourceId) {
+		private Material GenerateMaterial(int resourceId) {
 			return new() {
 				Title = Randomizer.RandomLetterOrNumbers(10),
 				Description = Randomizer.RandomLetterOrNumbers(64),

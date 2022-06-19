@@ -2,7 +2,7 @@
 	[Table("account_action")]
 	public partial class AccountAction : EntityBase {
 		[ForeignKey("user"), Required]
-		public ulong UserId { get; set; }
+		public int UserId { get; set; }
 		[Required, MaxLength(64)]
 		public string? Name { get; set; }
 		[Required]

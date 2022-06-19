@@ -2,9 +2,9 @@
 	[Table("bookmark")]
 	public partial class Bookmark : EntityBase {
 		[Required]
-		public ulong UserId { get; set; }
+		public int UserId { get; set; }
 		[Required]
-		public ulong ResourceId { get; set; }
+		public int ResourceId { get; set; }
 		[Required]
 		public DateTime Date { get; set; } = DateTime.Now;
 

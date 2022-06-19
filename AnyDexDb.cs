@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 // Expand this class in AnyDexDbExtensions.cs instead.
 
 namespace AnyDexDB {
-	public partial class AnyDexDb : IdentityDbContext<User, Role, ulong, UserClaim, UserRole, UserLogin, RoleClaim, UserToken> {
+	public partial class AnyDexDb : IdentityDbContext<User, Role, int, UserClaim, UserRole, UserLogin, RoleClaim, UserToken> {
 
 		#region DbSets
 		public virtual DbSet<AccountAction> AccountActions { get; set; }

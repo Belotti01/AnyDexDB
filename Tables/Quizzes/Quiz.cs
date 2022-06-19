@@ -9,7 +9,7 @@
 		}
 
 		[Required, ForeignKey("user")]
-		public ulong CreatorId { get; set; }
+		public int CreatorId { get; set; }
 		[Required]
 		public string? Title { get; set; }
 		public string Description { get; set; } = string.Empty;

@@ -6,9 +6,9 @@
 		}
 
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public ulong Id { get; set; }
+		public int Id { get; set; }
 		[Required, ForeignKey("user")]
-		public ulong UserId { get; set; }
+		public int UserId { get; set; }
 		[Required]
 		public string? Title { get; set; }
 		[Required]

@@ -24,7 +24,7 @@ namespace AnyDexDB.Testing {
 			db.SaveChanges();
 		}
 
-		private MaterialLink GenerateMaterialLink(ulong materialId) {
+		private MaterialLink GenerateMaterialLink(int materialId) {
 			return new() {
 				Description = Randomizer.LoremIpsium(5, 30),
 				MaterialId = materialId,

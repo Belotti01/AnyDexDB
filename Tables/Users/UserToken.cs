@@ -1,5 +1,5 @@
 ﻿namespace AnyDexDB.Tables {
 	[Table("user_token")]
-	public class UserToken : IdentityUserToken<ulong> {
+	public class UserToken : IdentityUserToken<int> {
 	}
 }

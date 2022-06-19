@@ -6,9 +6,9 @@
 
 
 		[Required, ForeignKey("user")]
-		public ulong UserId { get; set; }
+		public int UserId { get; set; }
 		// Require the ForeignKeyAttribute
-		public abstract ulong ParentCommentId { get; set; }
+		public abstract int ParentCommentId { get; set; }
 		public abstract int TargetId { get; set; }
 
 		public bool IsSpoiler { get; set; } = false;
