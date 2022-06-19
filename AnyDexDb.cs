@@ -46,11 +46,9 @@ namespace AnyDexDB {
 			Initialize();
 		}
 
-
-
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
 			if(!optionsBuilder.IsConfigured) {
-				optionsBuilder.UseMySql("user id=root;host=localhost;database=anydex;password=root", ServerVersion.Parse("8.0.27-mysql"));
+				optionsBuilder.UseNpgsql("user id=postgres;host=localhost;port=5432;database=anydex;password=root");
 			}
 		}
 
