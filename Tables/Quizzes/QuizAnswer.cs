@@ -8,7 +8,7 @@
 		[Required]
 		public ulong QuizQuestionId { get; set; }
 
-		[NotNull]
-        public virtual QuizQuestion? QuizQuestion { get; set; }
+		[NotNull, JsonIgnore]
+		public virtual QuizQuestion? QuizQuestion { get; set; }
 	}
 }

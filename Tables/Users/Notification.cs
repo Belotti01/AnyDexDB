@@ -12,7 +12,7 @@
 		[Required]
 		public DateTime Date { get; set; } = DateTime.Now;
 
-		[NotNull]
+		[NotNull, JsonIgnore]
 		public virtual User? User { get; set; }
 	}
 }

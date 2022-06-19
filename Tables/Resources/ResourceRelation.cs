@@ -7,9 +7,9 @@
 		[Required, ForeignKey("resource")]
 		public ulong RelatedResourceId { get; set; }
 
-		[NotNull]
+		[NotNull, JsonIgnore]
 		public virtual Resource? Resource { get; set; }
-		[NotNull]
+		[NotNull, JsonIgnore]
 		public virtual Resource? RelatedResource { get; set; }
 	}
 }

@@ -9,7 +9,7 @@
 		public string Description { get; set; } = string.Empty;
 		public DateTime? ReleaseDate { get; set; }
 
-		[NotNull]
+		[NotNull, JsonIgnore]
 		public virtual Material? Material { get; set; }
 	}
 }

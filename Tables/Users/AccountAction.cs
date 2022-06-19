@@ -10,7 +10,7 @@
 		public string? Location { get; set; }
 		public string? Ip { get; set; }
 
-		[NotNull]
+		[NotNull, JsonIgnore]
 		public virtual User? User { get; set; }
 	}
 }

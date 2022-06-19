@@ -19,11 +19,15 @@
 		[Required]
 		public string LanguageCode { get; set; } = "";
 
-		[NotNull]
+		[NotNull, JsonIgnore]
 		public virtual User? Creator { get; set; }
+		[JsonIgnore]
 		public virtual ICollection<QuizQuestion> QuizQuestions { get; set; }
+		[JsonIgnore]
 		public virtual ICollection<QuizRating> QuizRatings { get; set; }
+		[JsonIgnore]
 		public virtual ICollection<QuizResult> QuizResults { get; set; }
+		[JsonIgnore]
 		public virtual ICollection<ResourceQuiz> ResourceQuizzes { get; set; }
 	}
 }

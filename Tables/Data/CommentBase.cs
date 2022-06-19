@@ -17,11 +17,13 @@
 		[Required]
 		public string Content { get; set; } = "";
 
-		[NotNull]
+		[NotNull, JsonIgnore]
 		public virtual User? User { get; set; }
+		[JsonIgnore]
 		public virtual ICollection<TSelf> ChildComments { get; set; }
+		[JsonIgnore]
 		public virtual TSelf? ParentComment { get; set; }
-		[NotNull]
+		[NotNull, JsonIgnore]
 		public virtual TTarget? Target { get; set; }
 	}
 }

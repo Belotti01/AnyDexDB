@@ -10,9 +10,9 @@
 		[Required]
 		public byte Score { get; set; }
 
-		[NotNull]
+		[NotNull, JsonIgnore]
 		public virtual Quiz? Quiz { get; set; }
-		[NotNull]
+		[NotNull, JsonIgnore]
 		public virtual User? User { get; set; }
 	}
 }

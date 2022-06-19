@@ -14,9 +14,9 @@
 		[Required]
 		public ProgressStatus Status { get; set; } = ProgressStatus.None;
 		
-		[NotNull]
+		[NotNull, JsonIgnore]
 		public virtual Material? Material { get; set; }
-		[NotNull]
+		[NotNull, JsonIgnore]
 		public virtual User? User { get; set; }
 	}
 }

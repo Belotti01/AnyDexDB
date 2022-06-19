@@ -6,9 +6,9 @@
 		[Required, ForeignKey("quiz")]
 		public ulong QuizId { get; set; }
 
-		[NotNull]
+		[NotNull, JsonIgnore]
 		public virtual Quiz? Quiz { get; set; }
-		[NotNull]
+		[NotNull, JsonIgnore]
 		public virtual Resource? Resource { get; set; }
 	}
 }

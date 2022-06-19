@@ -11,9 +11,9 @@
 		public DateTime UtcFlagDate { get; set; } = DateTime.Now;
 
 
-		[NotNull]
+		[NotNull, JsonIgnore]
 		public virtual User? User { get; set; }
-		[NotNull]
+		[NotNull, JsonIgnore]
 		public virtual Material? Material { get; set; }
 	}
 }
