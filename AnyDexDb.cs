@@ -52,30 +52,31 @@ namespace AnyDexDB {
 			}
 		}
 
-		protected override void OnModelCreating(ModelBuilder modelBuilder) {
-			base.OnModelCreating(modelBuilder);
-			modelBuilder.UseIdentityColumns();
+		protected override void OnModelCreating(ModelBuilder builder) {
+			base.OnModelCreating(builder);
+			builder.UseIdentityAlwaysColumns();
+			builder.HasAnnotation("Npgsql:ValueGenerationStrategy", Npgsql.EntityFrameworkCore.PostgreSQL.Metadata.NpgsqlValueGenerationStrategy.SerialColumn);
 
 			// Map the self-referencing many-to-many "Resource" table relationship
-			modelBuilder.Entity<Resource>()
+			builder.Entity<Resource>()
 				.HasMany(x => x.RelatedResources)
 				.WithOne(x => x.RelatedResource)
 				.HasForeignKey(x => x.RelatedResourceId);
 
-			modelBuilder.Entity<Resource>()
+			builder.Entity<Resource>()
 				.HasMany(x => x.RelatingResources)
 				.WithOne(x => x.Resource)
 				.HasForeignKey(x => x.ResourceId);
 
 			// Set the name for ASP.NET Identity tables (setting the TableAttribute does not work)
-			modelBuilder.Entity<User>().ToTable("user");
-			modelBuilder.Entity<Role>().ToTable("role");
-			modelBuilder.Entity<UserRole>().ToTable("user_role");
-			modelBuilder.Entity<UserClaim>().ToTable("user_claim");
-			modelBuilder.Entity<RoleClaim>().ToTable("role_claim");
-			modelBuilder.Entity<UserLogin>().ToTable("user_login");
-			modelBuilder.Entity<UserToken>().ToTable("user_token");
-			modelBuilder.Entity<UserLogin>().ToTable("user_login");
+			builder.Entity<User>().ToTable("user");
+			builder.Entity<Role>().ToTable("role");
+			builder.Entity<UserRole>().ToTable("user_role");
+			builder.Entity<UserClaim>().ToTable("user_claim");
+			builder.Entity<RoleClaim>().ToTable("role_claim");
+			builder.Entity<UserLogin>().ToTable("user_login");
+			builder.Entity<UserToken>().ToTable("user_token");
+			builder.Entity<UserLogin>().ToTable("user_login");
 		}
 	}
 }
