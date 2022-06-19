@@ -1,8 +1,6 @@
 ﻿namespace AnyDexDB.Tables {
 	[Table("bookmark")]
-	public partial class Bookmark {
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public ulong Id { get; set; }
+	public partial class Bookmark : EntityBase {
 		[Required]
 		public ulong UserId { get; set; }
 		[Required]

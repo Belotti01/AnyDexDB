@@ -1,8 +1,6 @@
 ﻿namespace AnyDexDB.Tables {
 	[Table("resource_relation")]
-	public partial class ResourceRelation {
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public ulong Id { get; set; }
+	public partial class ResourceRelation : EntityBase {
 		public byte Type { get; set; }
 		[Required, ForeignKey("resource")]
 		public ulong ResourceId { get; set; }

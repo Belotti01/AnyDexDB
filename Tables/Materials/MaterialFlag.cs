@@ -1,8 +1,6 @@
 ﻿namespace AnyDexDB.Tables {
 	[Table("material_flag")]
-	public class MaterialFlag {
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public ulong Id { get; set; }
+	public class MaterialFlag : EntityBase {
 		[Required, EnumDataType(typeof(Flag))]
 		public Flag Flags { get; set; } = Flag.None;
 		[Required, ForeignKey("material")]

@@ -1,8 +1,6 @@
 ﻿namespace AnyDexDB.Tables {
 	[Table("material_link")]
-	public partial class MaterialLink {
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public ulong Id { get; set; }
+	public partial class MaterialLink : EntityBase {
 		[Required, ForeignKey("material")]
 		public ulong MaterialId { get; set; }
 		[Required, Url]

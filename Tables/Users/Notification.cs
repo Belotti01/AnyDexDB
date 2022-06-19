@@ -1,8 +1,6 @@
 ﻿namespace AnyDexDB.Tables {
 	[Table("notification")]
-	public partial class Notification {
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public ulong Id { get; set; }
+	public partial class Notification : EntityBase {
 		[Required, ForeignKey("user")]
 		public ulong UserId { get; set; }
 		[Required]

@@ -1,6 +1,6 @@
 ﻿namespace AnyDexDB.Tables {
 	[Table("quiz")]
-	public partial class Quiz {
+	public partial class Quiz : EntityBase {
 		public Quiz() {
 			QuizQuestions = new HashSet<QuizQuestion>();
 			QuizRatings = new HashSet<QuizRating>();
@@ -8,8 +8,6 @@
 			ResourceQuizzes = new HashSet<ResourceQuiz>();
 		}
 
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public ulong Id { get; set; }
 		[Required, ForeignKey("user")]
 		public ulong CreatorId { get; set; }
 		[Required]

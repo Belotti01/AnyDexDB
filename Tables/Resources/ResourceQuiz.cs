@@ -1,8 +1,6 @@
 ﻿namespace AnyDexDB.Tables {
 	[Table("resource_quiz")]
-	public partial class ResourceQuiz {
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public ulong Id { get; set; }
+	public partial class ResourceQuiz : EntityBase {
 		[Required, ForeignKey("resource")]
 		public ulong ResourceId { get; set; }
 		[Required, ForeignKey("quiz")]

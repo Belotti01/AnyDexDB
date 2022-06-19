@@ -1,14 +1,12 @@
 ﻿namespace AnyDexDB.Tables {
 	[Table("material")]
-	public partial class Material {
+	public partial class Material : EntityBase {
 		public Material() {
 			Progresses = new HashSet<Progress>();
 			MaterialLinks = new HashSet<MaterialLink>();
 			MaterialRatings = new HashSet<MaterialRating>();
 		}
 
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public ulong Id { get; set; }
 		[Required, ForeignKey("resource")]
 		public ulong ResourceId { get; set; }
 		[Required]

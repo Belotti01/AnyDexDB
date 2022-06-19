@@ -1,4 +1,5 @@
 ﻿global using AnyDexDB.Tables;
+global using AnyDexDB.Tables.Data;
 global using System;
 global using System.Linq;
 global using System.Collections.Generic;

@@ -1,6 +1,6 @@
 ﻿namespace AnyDexDB.Tables {
 	[Table("resource")]
-	public partial class Resource {
+	public partial class Resource : EntityBase {
 		public Resource() {
 			Bookmarks = new HashSet<Bookmark>();
 			CategoryRatings = new HashSet<CategoryRating>();
@@ -12,8 +12,6 @@
 			RelatedResources = new HashSet<ResourceRelation>();
 		}
 
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public ulong Id { get; set; }
 		[Required]
 		public string? Title { get; set; }
 		[Required]

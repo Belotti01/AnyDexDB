@@ -1,8 +1,6 @@
 ﻿namespace AnyDexDB.Tables {
 	[Table("account_action")]
-	public partial class AccountAction {
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public ulong Id { get; set; }
+	public partial class AccountAction : EntityBase {
 		[ForeignKey("user"), Required]
 		public ulong UserId { get; set; }
 		[Required, MaxLength(64)]

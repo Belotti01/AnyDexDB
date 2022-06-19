@@ -1,7 +1,5 @@
 ﻿namespace AnyDexDB.Tables.Data {
-	public abstract class RatingBase<TTarget> where TTarget : class {
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public ulong Id { get; set; }
+	public abstract class RatingBase<TTarget> : EntityBase where TTarget : class {
 		[Required]
 		public abstract ulong TargetId { get; set; }
 		[Required, ForeignKey("user")]

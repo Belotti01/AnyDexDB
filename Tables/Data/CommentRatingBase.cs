@@ -1,4 +1,4 @@
 ﻿namespace AnyDexDB.Tables.Data {
-	internal class CommentRatingBase {
+	internal class CommentRatingBase : EntityBase {
 	}
 }

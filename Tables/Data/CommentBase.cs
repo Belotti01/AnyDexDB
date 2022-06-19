@@ -1,12 +1,10 @@
 ﻿namespace AnyDexDB.Tables.Data {
-	public abstract class CommentBase<TTarget, TSelf> where TSelf : CommentBase<TTarget, TSelf> {
+	public abstract class CommentBase<TTarget, TSelf> : EntityBase where TSelf : CommentBase<TTarget, TSelf> {
 		public CommentBase() {
 			ChildComments = new HashSet<TSelf>();
 		}
 
 
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public ulong Id { get; set; }
 		[Required, ForeignKey("user")]
 		public ulong UserId { get; set; }
 		// Require the ForeignKeyAttribute

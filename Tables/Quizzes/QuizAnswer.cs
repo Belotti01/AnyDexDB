@@ -1,8 +1,6 @@
 ﻿namespace AnyDexDB.Tables {
 	[Table("quiz_answer")]
-	public partial class QuizAnswer {
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public ulong Id { get; set; }
+	public partial class QuizAnswer : EntityBase {
 		[Required]
 		public string? Answer { get; set; }
 		[Required]

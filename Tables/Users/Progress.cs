@@ -1,8 +1,6 @@
 ﻿namespace AnyDexDB.Tables {
 	[Table("progress")]
-	public partial class Progress {
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public ulong Id { get; set; }
+	public partial class Progress : EntityBase {
 		[Required, ForeignKey("user")]
 		public ulong UserId { get; set; }
 		[Required, ForeignKey("material")]
