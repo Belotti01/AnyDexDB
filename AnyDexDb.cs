@@ -55,10 +55,10 @@ namespace AnyDexDB {
 		protected override void OnModelCreating(ModelBuilder builder) {
 			base.OnModelCreating(builder);
 
-			builder.UseSerialColumns()
-				.UseIdentityAlwaysColumns()
-				.HasAnnotation("Npgsql:ValueGenerationStrategy", Npgsql.EntityFrameworkCore.PostgreSQL.Metadata.NpgsqlValueGenerationStrategy.SerialColumn)
-				.HasAnnotation("Npgsql:ValueGeneratedOnAdd", true);
+			//builder.UseSerialColumns()
+			//	.UseIdentityAlwaysColumns()
+			//	.HasAnnotation("Npgsql:ValueGenerationStrategy", Npgsql.EntityFrameworkCore.PostgreSQL.Metadata.NpgsqlValueGenerationStrategy.SerialColumn)
+			//	.HasAnnotation("Npgsql:ValueGeneratedOnAdd", true);
 
 			// Map the self-referencing many-to-many "Resource" table relationship
 			builder.Entity<Resource>()

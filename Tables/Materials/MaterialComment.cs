@@ -6,6 +6,6 @@ namespace AnyDexDB.Tables {
 		[ForeignKey("material_comment")]
 		public override ulong ParentCommentId { get; set; }
 		[ForeignKey("material")]
-		public override ulong TargetId { get; set; }
+		public override int TargetId { get; set; }
 	}
 }

@@ -1,7 +1,7 @@
 ﻿namespace AnyDexDB.Tables.Data {
-	public abstract class RatingBase<TTarget> : EntityBase where TTarget : IIdentifiable<ulong> {
+	public abstract class RatingBase<TTarget> : EntityBase where TTarget : IIdentifiable<int> {
 		[Required]
-		public abstract ulong TargetId { get; set; }
+		public abstract int TargetId { get; set; }
 		[Required, ForeignKey("user")]
 		public ulong UserId { get; set; }
 		[Required]

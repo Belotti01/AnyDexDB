@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AnyDexDB.Tables.Data {
-	public abstract class EntityBase : IIdentifiable<ulong> {
+	public abstract class EntityBase : IIdentifiable<int> {
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public ulong Id { get; set; }
+		public int Id { get; set; }
 	}
 }
