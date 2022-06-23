@@ -1,10 +1,9 @@
 ﻿namespace AnyDexDB.Tables {
 	[Table("material")]
-	public partial class Material : EntityBase {
+	public partial class Material : EntityBase, IReportable<Material, MaterialReport>, IRateable<Material, MaterialRating> {
 		public Material() {
 			Progresses = new HashSet<Progress>();
 			MaterialLinks = new HashSet<MaterialLink>();
-			MaterialRatings = new HashSet<MaterialRating>();
 		}
 
 		[Required, ForeignKey("resource")]
@@ -23,8 +22,6 @@
 		public virtual Resource? Resource { get; set; }
 		[JsonIgnore]
 		public virtual ICollection<Progress> Progresses { get; set; }
-		[JsonIgnore]
-		public virtual ICollection<MaterialRating> MaterialRatings { get; set; }
 		[JsonIgnore]
 		public virtual ICollection<MaterialLink> MaterialLinks { get; set; }
 	}

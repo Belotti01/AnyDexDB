@@ -1,6 +1,6 @@
 ﻿namespace AnyDexDB.Tables {
 	[Table("quiz")]
-	public partial class Quiz : EntityBase {
+	public partial class Quiz : EntityBase, IReportable<Quiz, QuizReport> {
 		public Quiz() {
 			QuizQuestions = new HashSet<QuizQuestion>();
 			QuizRatings = new HashSet<QuizRating>();

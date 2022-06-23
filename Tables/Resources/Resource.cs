@@ -1,6 +1,6 @@
 ﻿namespace AnyDexDB.Tables {
 	[Table("resource")]
-	public partial class Resource : EntityBase {
+	public partial class Resource : EntityBase, IReportable<Resource, ResourceReport> {
 		public Resource() {
 			Bookmarks = new HashSet<Bookmark>();
 			CategoryRatings = new HashSet<CategoryRating>();

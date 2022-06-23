@@ -7,7 +7,8 @@
 		Fraudolent = 4,
 		Spam = 8,
 		Duplicate = 16,
-		Misinformation = 32
+		Misinformation = 32,
+		LowQuality = 64
 	}
 
 	public static class FlagExtensions {

@@ -14,6 +14,10 @@
 		public bool IsSpoiler { get; set; } = false;
 		public bool IsNsfw { get; set; } = false;
 		public bool IsHidden { get; set; } = false;
+		public bool IsDeleted { get; set; } = false;
+
+		public DateTime UtcPostDate { get; set; }
+		public DateTime UtcLastModifiedDate { get; set; }
 		[Required]
 		public string Content { get; set; } = "";
 

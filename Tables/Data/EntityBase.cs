@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace AnyDexDB.Tables.Data {
 	public abstract class EntityBase : IIdentifiable<int> {
-		[Key]
-		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
 	}
 }
