@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AnyDexDB.Tables.Data {
-	public abstract class ReportBase<TTarget> where TTarget : IIdentifiable<int> {
+	public abstract class ReportBase<TTarget> : EntityBase where TTarget : IIdentifiable<int> {
 		[Required]
 		abstract public int TargetId { get; set; }
 		[Required, ForeignKey("user")]
