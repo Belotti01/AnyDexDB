@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnyDexDB.Tables.Resources {
+namespace AnyDexDB.Tables {
 	[Table("resource_relation_vote")]
 	public class ResourceRelationVote : VoteBase<ResourceRelation> {
 		[Required, ForeignKey("resource_relation")]

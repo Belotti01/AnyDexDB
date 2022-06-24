@@ -10,29 +10,42 @@ namespace AnyDexDB {
 	public partial class AnyDexDb : IdentityDbContext<User, Role, int, UserClaim, UserRole, UserLogin, RoleClaim, UserToken> {
 
 		#region DbSets
-		public virtual DbSet<AccountAction> AccountActions { get; set; }
-		public virtual DbSet<Bookmark> Bookmarks { get; set; }
-		public virtual DbSet<Category> Categories { get; set; }
-		public virtual DbSet<CategoryRating> CategoryRatings { get; set; }
-		public virtual DbSet<LearningPath> LearningPaths { get; set; }
-		public virtual DbSet<LearningStep> LearningSteps { get; set; }
-		public virtual DbSet<Material> Materials { get; set; }
-		public virtual DbSet<MaterialLink> MaterialLinks { get; set; }
-		public virtual DbSet<Notification> Notifications { get; set; }
-		public virtual DbSet<Progress> Progress { get; set; }
-		public virtual DbSet<Quiz> Quizzes { get; set; }
-		public virtual DbSet<QuizAnswer> QuizAnswers { get; set; }
-		public virtual DbSet<QuizQuestion> QuizQuestions { get; set; }
-		public virtual DbSet<QuizRating> QuizRatings { get; set; }
-		public virtual DbSet<QuizResult> QuizResults { get; set; }
-		public virtual DbSet<ResourceRating> ResourceRatings { get; set; }
-		public virtual DbSet<MaterialRating> MaterialRatings { get; set; }
+		// Resources
 		public virtual DbSet<Resource> Resources { get; set; }
 		public virtual DbSet<ResourceQuiz> ResourceQuizzes { get; set; }
 		public virtual DbSet<ResourceRelation> ResourceRelations { get; set; }
+		public virtual DbSet<Bookmark> Bookmarks { get; set; }
+		public virtual DbSet<Category> Categories { get; set; }
+		// Materials
+		public virtual DbSet<Material> Materials { get; set; }
+		public virtual DbSet<MaterialLink> MaterialLinks { get; set; }
+		// Accounts/Users
+		public virtual DbSet<AccountAction> AccountActions { get; set; }
+		public virtual DbSet<Notification> Notifications { get; set; }
+		public virtual DbSet<Progress> Progress { get; set; }
+		// Quizzes
+		public virtual DbSet<Quiz> Quizzes { get; set; }
+		public virtual DbSet<QuizAnswer> QuizAnswers { get; set; }
+		public virtual DbSet<QuizQuestion> QuizQuestions { get; set; }
+		public virtual DbSet<QuizResult> QuizResults { get; set; }
+		// Paths
+		public virtual DbSet<LearningPath> LearningPaths { get; set; }
+		public virtual DbSet<LearningStep> LearningSteps { get; set; }
+		// Ratings		
+		public virtual DbSet<ResourceRating> ResourceRatings { get; set; }
+		public virtual DbSet<MaterialRating> MaterialRatings { get; set; }
+		public virtual DbSet<QuizRating> QuizRatings { get; set; }
+		public virtual DbSet<CategoryRating> CategoryRatings { get; set; }
+		// Votes
+		public virtual DbSet<ResourceRelationVote> ResourceRelationVotes { get; set; }
+		// Comments
 		public virtual DbSet<ResourceComment> ResourceComments { get; set; }
 		public virtual DbSet<MaterialComment> MaterialComments { get; set; }
 		public virtual DbSet<QuizComment> QuizComments { get; set; }
+		// Reports
+		public virtual DbSet<ResourceReport> ResourceReports { get; set; }
+		public virtual DbSet<MaterialReport> MaterialReports { get; set; }
+		public virtual DbSet<QuizReport> QuizReports { get; set; }
 		#endregion
 
 
